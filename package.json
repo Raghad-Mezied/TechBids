@@ -1,0 +1,42 @@
+{
+  "name": "techbids",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G10/TechBids.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G10/TechBids/issues"
+  },
+  "homepage": "https://github.com/GSG-G10/TechBids#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "@types/sequelize": "^4.28.10",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
+    "env2": "^2.2.2",
+    "joi": "^17.4.2",
+    "pg": "^8.7.1",
+    "sequelize": "^6.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "bcrypt": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14",
+    "pre-commit": "^1.2.2",
+    "supertest": "^6.1.6"
+  }
+}
