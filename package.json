@@ -45,8 +45,5 @@
     "supertest": "^6.1.6"
   },
   "pre-commit": [
-    "lint",
-    "lint-client",
-    "test"
   ]
 }
