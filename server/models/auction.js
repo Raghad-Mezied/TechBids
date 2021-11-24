@@ -25,6 +25,6 @@ const Auction = sequelize.define('auction', {
   },
 
 });
-Auction.belongsTo(Product, { foreignkey: 'product_id' });
-Auction.belongsTo(User, { foreignkey: 'user_id' });
+Auction.hasMany(Product, { foreignkey: 'product_id' });
+Auction.hasMany(User, { foreignkey: 'user_id' });
 module.exports = { Auction };

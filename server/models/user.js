@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const { Product } = require('.');
 const { sequelize } = require('../config/connection');
 
 const User = sequelize.define('user', {
@@ -21,4 +22,7 @@ const User = sequelize.define('user', {
     allowNull: false,
   },
 });
+
+User.belongsToMany(Product, { through: 'action' });
+
 module.exports = { User };

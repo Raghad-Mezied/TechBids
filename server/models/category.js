@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const { Product } = require('.');
 const { sequelize } = require('../config/connection');
 
 const Category = sequelize.define('category', {
@@ -12,6 +13,8 @@ const Category = sequelize.define('category', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-
 });
+
+Category.hasMany(Product, { foreignkey: 'category_id' });
+
 module.exports = { Category };

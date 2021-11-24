@@ -48,7 +48,10 @@ const Product = sequelize.define('product', {
     allowNull: false,
   },
 });
-Product.belongsTo(User, { foreignkey: 'winner_id' });
-Product.belongsTo(User, { foreignkey: 'user_id' });
-Product.belongsTo(Category, { foreignkey: 'category_id' });
+Product.belongsTo(User, { foreignkey: 'winner_id', as: 'winner' });
+Product.belongsTo(User, { foreignkey: 'user_id', as: 'user' });
+Product.belongsTo(Category, { foreignkey: 'category_id', as: 'category' });
+
+Product.belongsToMany(User, { through: 'auction', as: 'user_auction' });
+
 module.exports = { Product };
