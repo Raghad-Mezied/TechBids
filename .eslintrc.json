@@ -17,7 +17,7 @@
     },
     "overrides": [
         {
-          "files": [ "src/**/*.js" ]
+            "files": [ "server/**/*.js" ]
         }
-      ]
+    ]
 }
