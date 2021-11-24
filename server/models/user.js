@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
-const sequelize = require("../config/database");
+const { sequelize } = require("../config/connection");
+
 const User = sequelize.define("user",{
     id:{
         type:Sequelize.INTEGER,
@@ -16,8 +17,8 @@ const User = sequelize.define("user",{
         allowNull:false,
     },
     password:{
-        type:Sequelize.password,
+        type:Sequelize.STRING,
         allowNull:false,
     }
 })
-module.exports = User;
+module.exports = { User };
