@@ -2,12 +2,16 @@ const { verifyTokenPromise } = require('../../utils');
 
 const isAuth = async (req, res, next) => {
   const { token } = req.cookies;
-  try {
-    const userToken = await verifyTokenPromise(token);
-    req.user = userToken;
-    return next();
-  } catch (err) {
-    return next(err);
+  if (token) {
+    try {
+      const userToken = await verifyTokenPromise(token);
+      req.user = userToken;
+      return next();
+    } catch (err) {
+      return next(err);
+    }
+  } else {
+    res.json('you need to sign in ');
   }
 };
 
