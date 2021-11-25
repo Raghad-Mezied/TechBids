@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
-const { Product } = require('.');
 const { sequelize } = require('../config/connection');
 
-const User = sequelize.define('user', {
+const User = sequelize.define('users', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -22,10 +21,5 @@ const User = sequelize.define('user', {
     allowNull: false,
   },
 });
-
-User.belongsToMany(Product, { through: 'action', as: 'auctioned_products' });
-
-User.hasMany(Product, { foreignkey: 'winner_id', as: 'winner_products' });
-User.hasMany(Product, { foreignkey: 'user_id', as: 'user_products' });
 
 module.exports = { User };

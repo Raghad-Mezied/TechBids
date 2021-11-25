@@ -1,3 +1,3 @@
-const { Index } = require('../models/index');
+const Index = require('../models/index');
 
-module.exports = { Index };
+module.exports = Index;

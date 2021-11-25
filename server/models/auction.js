@@ -1,9 +1,7 @@
 const Sequelize = require('sequelize');
 const { sequelize } = require('../config/connection');
-const { Product } = require('./product');
-const { User } = require('./user');
 
-const Auction = sequelize.define('auction', {
+const Auction = sequelize.define('auctions', {
   user_id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -25,6 +23,5 @@ const Auction = sequelize.define('auction', {
   },
 
 });
-Auction.hasMany(Product, { foreignkey: 'product_id' });
-Auction.hasMany(User, { foreignkey: 'user_id' });
+
 module.exports = { Auction };
