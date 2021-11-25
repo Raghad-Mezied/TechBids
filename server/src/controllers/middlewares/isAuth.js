@@ -11,7 +11,7 @@ const isAuth = async (req, res, next) => {
       return next(err);
     }
   } else {
-    res.json('you need to sign in ');
+    res.json({ msg: 'you need to sign in ' });
   }
 };
 
