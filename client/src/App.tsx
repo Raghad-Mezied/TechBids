@@ -1,6 +1,7 @@
+import React from 'react';
 import './App.css';
 
-const App = () : any => (
+const App : React.FC = () => (
   <div className="App">
     hello world
   </div>

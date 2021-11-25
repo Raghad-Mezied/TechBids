@@ -23,6 +23,9 @@ const User = sequelize.define('user', {
   },
 });
 
-User.belongsToMany(Product, { through: 'action' });
+User.belongsToMany(Product, { through: 'action', as: 'auctioned_products' });
+
+User.hasMany(Product, { foreignkey: 'winner_id', as: 'winner_products' });
+User.hasMany(Product, { foreignkey: 'user_id', as: 'user_products' });
 
 module.exports = { User };
