@@ -1,4 +1,5 @@
 const { verifyTokenPromise } = require('../../utils');
+const { boomify } = require('../../utils/index');
 
 const isAuth = async (req, res, next) => {
   const { token } = req.cookies;
@@ -11,7 +12,7 @@ const isAuth = async (req, res, next) => {
       return next(err);
     }
   } else {
-    res.json({ msg: 'you need to sign in ' });
+    throw boomify(401, 'Unauthorized', 'You need to login or sign up');
   }
 };
 
