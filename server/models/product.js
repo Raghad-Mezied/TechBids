@@ -14,18 +14,18 @@ const Product = sequelize.define('products', {
   },
   winner_id: {
     type: Sequelize.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
   category_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
   auc_start_amount: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
   auc_inc_amount: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
   name: {
@@ -44,6 +44,12 @@ const Product = sequelize.define('products', {
   is_open: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
+    defaultValue: true,
+  },
+  is_used: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
   },
 });
 

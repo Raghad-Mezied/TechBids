@@ -14,7 +14,7 @@ const Auction = sequelize.define('auctions', {
   },
   date: {
     type: Sequelize.DATE,
-    allowNull: false,
+    defaultValue: Sequelize.NOW,
   },
 
   amount: {
