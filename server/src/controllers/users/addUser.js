@@ -9,11 +9,9 @@ module.exports = async (req, res, next) => {
     const {
       name, email, password, confirmPassword,
     } = req.body;
-
     await signUpSchema.validateAsync({
       name, email, password, confirmPassword,
     });
-
     const { count } = await User.findAndCountAll({
       where: {
         email: {
@@ -21,18 +19,17 @@ module.exports = async (req, res, next) => {
         },
       },
     });
-
     if (!count) {
       const hashedPassword = await hash(password, 10);
       const userData = await User.create({ name, email, password: hashedPassword });
       const token = await signTokenPromise(userData.dataValues.id, name, 'false');
-      res.status(201).cookie('token', token, { httponly: true, secure: true }).json({ msg: 'signed up succesfully' });
+      res.status(201).cookie('token', token, { httponly: true, secure: true }).json({ message: 'signed up successfully' });
     } else {
-      res.status(409).json({ error: 'This email is already connected to an account' });
+      throw boomify(409, 'exist email', 'This email is already connected to an account');
     }
   } catch (err) {
     if (err.name === 'ValidationError') {
-      throw boomify(400, err.details[0].message, 'Bad Request');
+      next(boomify(400, err.details[0].message, 'Bad Request'));
     } else {
       next(err);
     }

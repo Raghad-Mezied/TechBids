@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { handleAddUser } = require('../controllers/users');
+const { serverError, clientError, handleAddUser } = require('../controllers');
 
 router.post('/signup', handleAddUser);
+router.use(clientError);
+router.use(serverError);
 
 module.exports = router;
