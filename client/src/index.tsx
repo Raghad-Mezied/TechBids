@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { SnackbarProvider } from 'notistack';
 import App from './App';
-import { ProvideSnack } from './context/useSnack';
 
 ReactDOM.render(
-  <ProvideSnack>
+  <SnackbarProvider>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </ProvideSnack>,
+  </SnackbarProvider>,
   document.getElementById('root'),
 );
