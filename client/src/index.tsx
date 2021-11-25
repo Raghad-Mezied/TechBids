@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { ProvideSnack } from './context/useSnack';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ProvideSnack>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ProvideSnack>,
   document.getElementById('root'),
 );
