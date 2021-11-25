@@ -1,6 +1,12 @@
-/* eslint-disable no-unused-vars */
-interface User {
+export interface User {
     id: number,
     name: string,
-    email: string,
+    isAdmin: boolean,
+}
+
+export interface AuthContext {
+    user: User | null,
+    login: Function,
+    logout: Function,
+    signup: Function,
 }
