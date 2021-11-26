@@ -1,8 +1,10 @@
 const joi = require('joi');
 
+console.log('aaaaaaaaaaaaaaaaaaaaaaaaa');
+
 const signInValidation = joi.object({
-  email: joi.string().email().require(),
-  password: joi.string().password().require,
+  email: joi.string().email().required(),
+  password: joi.string().required(),
 });
 
-module.export = { signInValidation };
+module.exports = { signInValidation };
