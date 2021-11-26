@@ -14,5 +14,10 @@
     "rules": {
         "consistent-return": "off",
         "linebreak-style": 0
-    }
+    },
+    "overrides": [
+        {
+            "files": [ "server/**/*.js" ]
+        }
+    ]
 }

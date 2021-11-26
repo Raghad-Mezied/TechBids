@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && npm run start",
-    "dev": "cd server && npm run dev"
+    "start": "cross-env NODE_ENV=production node server/src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon server/src/index.js",
+    "test": "cross-env NODE_ENV=test jest --runInBand",
+    "db:build": "cross-env NODE_ENV=development node server/src/config/dbBuild.js",
+    "lint": "eslint server/src/** .",
+    "lint-fix": "eslint server/src/** --fix",
+    "lint-client": "cd client && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -40,5 +44,10 @@
     "nodemon": "^2.0.14",
     "pre-commit": "^1.2.2",
     "supertest": "^6.1.6"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "lint-client",
+    "test"
+  ]
 }

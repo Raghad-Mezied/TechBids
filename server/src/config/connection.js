@@ -1,8 +1,11 @@
+/* eslint-disable no-console */
 require('env2')('.env');
 
 const Sequelize = require('sequelize');
 
-const { DB_URL, DEV_DB_URL, TEST_DB_URL, NODE_ENV } = process.env;
+const {
+  DB_URL, DEV_DB_URL, TEST_DB_URL, NODE_ENV,
+} = process.env;
 
 let dbUrl = '';
 
@@ -19,13 +22,13 @@ switch (NODE_ENV) {
   default:
     throw new Error('No database found');
 }
-console.log(dbUrl)
+
 const sequelize = new Sequelize(dbUrl, {
   dialect: 'postgres',
   dialectOptions: {
-    // ssl: {
-    //   rejectUnauthorized: false,
-    // },
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
   logging: false,
 });
