@@ -6,13 +6,13 @@ const data = require('./data.json');
 
 module.exports = async () => {
   try {
-    await sequelize.sync({ force: true });
+    await sequelize.truncate({ cascade: true });
+    await sequelize.sync();
     await Promise.all([
       ...data.users.map((item) => User.create(item)),
     ]);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.log(err);
   }
-//   console.log(process.exit())
-//   return process.exit(0);
 };

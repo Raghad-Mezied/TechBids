@@ -27,40 +27,39 @@ describe('sign up tests', () => {
       });
   });
 
-  // test('sign up with validation error', (done) => {
-  //   request(app)
-  //     .post('/api/signup')
-  //     .send({
-  //       name: 'test2test',
-  //       email: 'test12345678@gmail.com',
-  //       password: 'test123',
-  //       confirmPassword: 'test123',
-  //     })
-  //     .expect(400)
-  //     .end((err) => {
-  //       if (err) {
-  //         return done(err);
-  //       }
-  //       return done();
-  //     });
-  // });
+  test('sign up with validation error', (done) => {
+    request(app)
+      .post('/api/signup')
+      .send({
+        name: 'te',
+        email: 'test12345678@gmail.com',
+        password: 'test123',
+        confirmPassword: 'test123',
+      })
+      .expect(400)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.message).toBe('Bad Request');
+        return done();
+      });
+  });
 
-  // test('sign up with used email', (done) => {
-  //   request(app)
-  //     .post('/api/signup')
-  //     .send({
-  //       name: 'test2test',
-  //       email: 'test1@gmail.com',
-  //       password: 'test123',
-  //       confirmPassword: 'test123',
-  //     })
-  //     .expect(409)
-  //     .end((err, res) => {
-  //       if (err) return done(err);
-  //       expect(res.body.message).toBe('This email is already connected to an account');
-  //       return done();
-  //     });
-  // });
+  test('sign up with used email', (done) => {
+    request(app)
+      .post('/api/signup')
+      .send({
+        name: 'test2test',
+        email: 'test1@gmail.com',
+        password: 'test123',
+        confirmPassword: 'test123',
+      })
+      .expect(409)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.message).toBe('This email is already connected to an account');
+        return done();
+      });
+  });
 });
 
 afterAll(() => sequelize.close());
