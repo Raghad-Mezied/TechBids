@@ -20,6 +20,34 @@ describe('Sign in test with status code 201', () => {
         return done();
       });
   });
+
+  test('Sign in test with validation', (done) => {
+    request(app)
+      .post('/api/signIn')
+      .send({ email: 'test2@gmail.com', password: '123' })
+      .expect(400)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
+
+  test('Sign in test with wrong Password', (done) => {
+    request(app)
+      .post('/api/signIn')
+      .send({ email: 'test3@gmail.com', password: '123456789asd' })
+      .expect(401)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
 });
 
 afterAll(() => sequelize.close());

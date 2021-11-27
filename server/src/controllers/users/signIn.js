@@ -26,7 +26,7 @@ const signIn = async (req, res, next) => {
     const compare = await bcrypt.compare(password, userData[0].dataValues.password);
 
     if (!compare) {
-      throw (boomify(400, 'Login Error', 'wrong Password'));
+      throw (boomify(401, 'Login Error', 'wrong Password'));
     }
 
     const token = await signTokenPromise(userData[0].dataValues.id, userData[0].dataValues.name, 'false');
