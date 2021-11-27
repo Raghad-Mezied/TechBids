@@ -4,8 +4,6 @@ const app = require('../src/app');
 const dbBuild = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
-// sequelize.sync({ force: true });
-
 beforeEach(() => dbBuild());
 
 describe('sign up tests', () => {
@@ -20,6 +18,7 @@ describe('sign up tests', () => {
       })
       .expect(201)
       .expect('Content-Type', /json/)
+      .expect((response) => expect(response.header['set-cookie'][0].split('=')[0]).toBe('token'))
       .end((err, res) => {
         if (err) return done(err);
         expect(res.body.message).toBe('signed up successfully');
