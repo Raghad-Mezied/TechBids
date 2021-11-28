@@ -34,7 +34,7 @@
       "image" : "das"
     }
   ],
-  "products": [
+  "products" : [
     {
       "user_id" : 1,
       "winner_id" : 1,
@@ -74,7 +74,7 @@
     {
       "user_id" : 3,
       "winner_id" : 2,
-      "category_id" : 4,
+      "category_id" : 2,
       "auc_start_amount" : 520,
       "auc_inc_amount" : 10,
       "name" : "HeadPhone",
@@ -84,8 +84,7 @@
       "is_used" : true
     }
   ],
-
-
+  
   "auctions" : [
     {
       "user_id" : 1,

@@ -9,12 +9,17 @@ const data = require('./data.json');
 
 const build = async () => {
   try {
-    // await sequelize.truncate();
     await sequelize.sync({ force: true });
+    await sequelize.truncate({ cascade: true });
+
     await Promise.all([
-      ...data.users.map((item) => User.create(item)),
       ...data.categories.map((item) => Category.create(item)),
+      ...data.users.map((item) => User.create(item)),
+    ]);
+    await Promise.all([
       ...data.products.map((item) => Product.create(item)),
+    ]);
+    await Promise.all([
       ...data.auctions.map((item) => Auction.create(item)),
     ]);
   } catch (err) {
@@ -23,6 +28,8 @@ const build = async () => {
   }
 };
 
-build();
+if (process.env.NODE_ENV !== 'test') {
+  build();
+}
 
 module.exports = { build };
