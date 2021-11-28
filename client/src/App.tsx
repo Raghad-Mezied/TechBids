@@ -1,9 +1,19 @@
 import React from 'react';
-import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+
+import { ProvideAuth } from './context/useAuth';
+
+import theme from './theme';
+import SignIn from './pages/SignIn';
 
 const App : React.FC = () => (
-  <div className="App">
-    hello world
+  <div>
+    <ProvideAuth>
+      <ThemeProvider theme={theme}>
+        <SignIn />
+      </ThemeProvider>
+    </ProvideAuth>
+
   </div>
 );
 
