@@ -1,17 +1,11 @@
-/* eslint-disable react/button-has-type */
 import React from 'react';
 import './App.css';
-import { useSnack } from './context/useSnack';
+import BidsDetailsSelect from './pages/BidsDetailsSelect';
 
-const App : React.FC = () => {
-  const { showSnack } = useSnack();
-
-  return (
-    <div className="App">
-      hello world
-      <button onClick={() : void => { showSnack('Hello World :)', 'success'); }}>test</button>
-    </div>
-  );
-};
+const App : React.FC = () => (
+  <div className="App">
+    <BidsDetailsSelect />
+  </div>
+);
 
 export default App;
