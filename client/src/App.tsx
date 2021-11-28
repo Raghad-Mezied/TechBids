@@ -4,7 +4,7 @@ import BidsDetailsSelect from './pages/BidsDetailsSelect';
 
 const App : React.FC = () => (
   <div className="App">
-    <BidsDetailsSelect />
+    <BidsDetailsSelect text="catagories" item={['Mobile', 'Computers', ' Gaming']} />
   </div>
 );
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-redeclare */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
@@ -8,18 +9,25 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface Prop {
-  text: string;
-  value : string;
-  handleChange:any;
-  item: string[];
+  text?: string ;
+  value? : string ;
+  // handleChange:any;
+  item: string[] ;
 
 }
 
+const x: Prop = {
+  text: 'hello',
+  value: 'Computers',
+  // handleChange:any;
+  item: ['Mobile', 'Computers', ' Gaming'],
+
+};
+
 const BidsDetailsSelect: React.FC<Prop> = ({
-  text, value, handleChange, item,
+  text, value, item,
 }) => {
   const [categories, setCategories] = useState('');
-
   const handleChange = (event: SelectChangeEvent) => {
     setCategories(event.target.value);
   };
@@ -35,13 +43,13 @@ const BidsDetailsSelect: React.FC<Prop> = ({
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value="">
+          <MenuItem value={value}>
             <em>None</em>
           </MenuItem>
-          <MenuItem value="Computers">Computers</MenuItem>
-          <MenuItem value="Mobile">Mobile</MenuItem>
-          <MenuItem value="Gaming">Gaming</MenuItem>
+          {item.map((itemMenu) => <MenuItem value={itemMenu}>{itemMenu}</MenuItem>)}
+          {/* {item.map((itemMenu) => <MenuItem value={itemMenu.id}>{itemMenu.name}</MenuItem>)} */}
         </Select>
+
       </FormControl>
     </div>
   );
