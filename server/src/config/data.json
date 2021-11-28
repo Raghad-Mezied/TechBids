@@ -1,24 +1,111 @@
 {
-	"users":[
-		{
-			"name": "test1",
-			"email": "test1@gmail.com",
-			"password": "1234567"
-		},
-		{
-			"name": "test2",
-			"email": "test2@gmail.com",
-			"password": "1234567"
+  "users": [
+    {
+      "name" : "test1",
+      "email" : "test1@gmail.com",
+      "password" : "1234567"
+    },
+    {
+      "name" : "test2",
+      "email" : "test2@gmail.com",
+      "password" : "1234567"
+    },
+    {
+      "name" : "test3",
+      "email" : "test3@gmail.com",
+      "password" : "dasd"
+    }
+  ],
+  "categories" : [
+    {
+      "name" : "LapTop",
+      "image" : "dasdsa"
+    },
+    {
+      "name" : "DeskTop",
+      "image" : "CAU"
+    },
+    {
+      "name" : "Mobile",
+      "image" : "asdasd"
+    },
+    {
+      "name" : "HeadPhones",
+      "image" : "das"
+    }
+  ],
+  "products": [
+    {
+      "user_id" : 1,
+      "winner_id" : 1,
+      "category_id" : 1,
+      "auc_start_amount" : 400,
+      "auc_inc_amount" : 50,
+      "name" : "LabTop",
+      "image" : "dsf",
+      "description" : "dasdasda",
+      "is_open" : false,
+      "is_used" : false
+    },
+    {
+      "user_id" : 2,
+      "winner_id" : 1,
+      "category_id" : 2,
+      "auc_start_amount" : 100,
+      "auc_inc_amount" : 20,
+      "name" : "Desktop Gamer Las Vegas",
+      "image" : "dsdsad",
+      "description" : "dasds",
+      "is_open" : false,
+      "is_used" : false
+    },
+    {
+      "user_id" : 3,
+      "winner_id" : 2,
+      "category_id" : 3,
+      "auc_start_amount" : 520,
+      "auc_inc_amount" : 10,
+      "name" : "Space Grey 64GB Phone",
+      "image" : "dasdsa",
+      "description" : "dsad",
+      "is_open" : true,
+      "is_used" : true
+    },
+    {
+      "user_id" : 3,
+      "winner_id" : 2,
+      "category_id" : 4,
+      "auc_start_amount" : 520,
+      "auc_inc_amount" : 10,
+      "name" : "HeadPhone",
+      "image" : "dasdasds",
+      "description" : "dasdasd",
+      "is_open" : true,
+      "is_used" : true
+    }
+  ],
 
-		},
-		{
-			"name": "test3",
-			"email": "test3@gmail.com",
-			"password": "$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y"
 
-		}
-	]
-    
+  "auctions" : [
+    {
+      "user_id" : 1,
+      "product_id" : 1,
+      "amount" : 500
+    },
+    {
+      "user_id" : 2,
+      "product_id" : 3,
+      "amount" : 200
+    },
+    {
+      "user_id" : 3,
+      "product_id" : 3,
+      "amount" : 700
+    },
+    {
+      "user_id" : 3,
+      "product_id" : 4,
+      "amount" : 1000
+    }
+  ]
 }
-
-

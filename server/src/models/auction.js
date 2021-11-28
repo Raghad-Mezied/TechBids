@@ -2,16 +2,14 @@ const Sequelize = require('sequelize');
 const { sequelize } = require('../config/connection');
 
 const Auction = sequelize.define('auctions', {
-  user_id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true,
-  },
-  product_id: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+  // user_id: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  // },
+  // product_id: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  // },
   date: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW,
