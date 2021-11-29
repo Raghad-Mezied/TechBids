@@ -16,7 +16,7 @@ switch (NODE_ENV) {
   case 'development':
     dbUrl = DEV_DB_URL;
     break;
-  case 'testing':
+  case 'test':
     dbUrl = TEST_DB_URL;
     break;
   default:
@@ -41,8 +41,6 @@ const sequelize = new Sequelize(dbUrl, {
     console.error('Unable to connect to the database:', error);
   }
 })();
-
-sequelize.sync();
 
 module.exports = {
   sequelize,

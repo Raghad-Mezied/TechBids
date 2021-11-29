@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import {
   Box, Typography, Divider,
 } from '@mui/material';
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import SignInForm from '../../Components/SignInForm';
 import logo from '../../images/logo.png';
 import { useAuth } from '../../context/useAuth';
+import { useSnack } from '../../context/useSnack';
 
 const SignIn : React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -13,13 +14,13 @@ const SignIn : React.FC = () => {
     password: '',
   });
   const { email, password } = formValues;
-
   const [error, setError] = useState({
     email: false, password: false,
   });
 
   const { login } = useAuth();
-  // const history = useHistory();
+  const navigate = useNavigate();
+  const { showSnack } = useSnack();
 
   const handleChange = (event: any): any => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
@@ -41,12 +42,11 @@ const SignIn : React.FC = () => {
 
   const onClickHandle = (): any => {
     handleError(() => {
-      login(formValues, (err: any): any => {
+      login(email, password, (err: any): any => {
         if (err) {
-          // <Alter className="error" title="error" description="Error happenes" />;
-          console.log(err);
+          showSnack('Something went wrong', 'error');
         } else {
-          // history.push('/');
+          navigate('/');
         }
       });
     });
@@ -54,6 +54,7 @@ const SignIn : React.FC = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
+      {/* Left Section */}
       <Box sx={{
         width: '50%',
         height: '100vh',
