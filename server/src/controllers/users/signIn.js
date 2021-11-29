@@ -33,11 +33,9 @@ const signIn = async (req, res, next) => {
     const token = await signTokenPromise(userData[0].dataValues.id, userData[0].dataValues.name, 'false');
     res.status(201).cookie('token', token, { httpOnly: true, secure: true }).json({ message: 'signed In Successfully' });
   } catch (err) {
-    console.log(err);
     if (err.name === 'ValidationError') {
       next(boomify(400, err.details[0].message, 'Bad Request'));
     } else {
-      console.log(err);
       next(err);
     }
   }
