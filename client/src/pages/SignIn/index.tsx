@@ -44,7 +44,7 @@ const SignIn : React.FC = () => {
     handleError(() => {
       login(email, password, (err: any): any => {
         if (err) {
-          showSnack('Something went wrong', 'error');
+          showSnack(err.response.data.message, 'error');
         } else {
           navigate('/');
         }
