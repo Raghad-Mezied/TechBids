@@ -16,7 +16,7 @@ const Footer : React.FC = () => (
     </div>
     <div className="copy_right">
       <Typography variant="body1" gutterBottom className="paragraph-description">
-        Copyright © 2021 Udrive.com. All rights reserved.
+        Copyright © 2021 TechBids.com. All rights reserved.
       </Typography>
     </div>
   </div>
