@@ -1,5 +1,10 @@
 const router = require('express').Router();
-const { serverError, clientError, handleAddUser } = require('../controllers');
+
+const {
+  serverError, clientError, signIn, handleAddUser,
+} = require('../controllers');
+
+router.post('/signIn', signIn);
 
 router.post('/signup', handleAddUser);
 router.use(clientError);
