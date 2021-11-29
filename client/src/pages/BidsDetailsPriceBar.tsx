@@ -9,7 +9,7 @@ const BidsDetailsPriceBar: React.FC = () => {
     return `${value}°C`;
   }
   return (
-    <div>
+    <div className="BidsDetailsPriceBar">
       <p className="price-range">Price Range</p>
       <Slider
         sx={{ width: 200 }}
