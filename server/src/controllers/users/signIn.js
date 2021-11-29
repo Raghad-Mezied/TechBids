@@ -8,7 +8,6 @@ const { boomify, signTokenPromise } = require('../../utils');
 
 const signIn = async (req, res, next) => {
   try {
-    console.log('body', req.body);
     const { email, password } = req.body;
     await signInValidation.validateAsync({ email, password });
 
