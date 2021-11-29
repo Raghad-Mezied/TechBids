@@ -1,13 +1,13 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   TextField, Button, Box, Typography,
 } from '@mui/material';
 
 interface Props {
-  email: any,
+  email: string,
   emailError: any,
-  password: any,
+  password: string,
   passwordError: any,
   handleChange: any,
   onClickHandle: any,
@@ -55,7 +55,7 @@ const SignInForm : React.FC<Props> = ({
       required
       helperText={
                   passwordError
-                    ? 'Please enter your Password'
+                    ? 'Please enter Password with at least 8 characters'
                     : ''
                 }
       onChange={handleChange}
@@ -73,7 +73,7 @@ const SignInForm : React.FC<Props> = ({
 
     <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ paddingTop: '15px', color: '#9AA1B9' }}>
       Dont have an account ?
-      {/* <Link to="/login"> Signin </Link> */}
+      <Link to="/signup"> Sign up </Link>
     </Typography>
   </Box>
 );

@@ -31,7 +31,7 @@ const SignIn : React.FC = () => {
       setError({
         email: true, password: false,
       });
-    } else if (formValues.password === '') {
+    } else if (formValues.password.length < 8) {
       setError({
         email: false, password: true,
       });
