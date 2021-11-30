@@ -1,7 +1,8 @@
 const { Op } = require('sequelize');
-const { Product, Auction } = require('../../models');
+const { Product } = require('../../models');
 const { filterProductsSchema } = require('../validations');
 const { boomify } = require('../../utils');
+const { sequelize } = require('../../config/connection');
 
 module.exports = async (req, res, next) => {
   try {
@@ -33,47 +34,37 @@ module.exports = async (req, res, next) => {
     });
 
     const productData = await Product.findAll({
-      attributes: ['id', 'name', 'description', 'is_open', 'image', 'auc_end_date'],
+      attributes: ['id', 'name', 'description', 'is_open', 'image', 'auc_end_date', 'auc_amount'],
       offset: (page - 1) * 6,
-      include: {
-        model: Auction,
-        as: 'auction',
-        order: [
-          ['id', 'DESC'],
-        ],
-        limit: 1,
-        attributes: ['amount'],
-        where: maxPrice && {
-          amount: {
-            [Op.between]: [minPrice, maxPrice],
-          },
-        },
-      },
       where: {
         [Op.and]: [
-          search && {
+          search !== undefined && {
             [Op.or]: [
               {
-                name: {
-                  // [Op.like]: sequelize.fn('lower', `%${search}%`),
-                  [Op.like]: `%${search}%`,
-                },
+                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${search.toLowerCase()}%`),
               },
               {
-                description: {
-                  [Op.like]: `%${search}%`,
-                },
+                description: sequelize.where(sequelize.fn('LOWER', sequelize.col('description')), 'LIKE', `%${search.toLowerCase()}%`),
               },
             ],
           },
           isOpen !== undefined && { is_open: isOpen },
           categoryId !== undefined && { category_id: categoryId },
+          maxPrice !== undefined && {
+            auc_amount: {
+              [Op.lte]: maxPrice,
+            },
+          },
+          {
+            auc_amount: {
+              [Op.gte]: minPrice,
+            },
+          },
         ],
       },
     });
 
-    const data = productData.filter((elm) => elm.auction.length !== 0);
-    res.json({ data });
+    res.json({ productData });
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(boomify(400, err.details[0].message, 'Bad Request'));
@@ -82,5 +73,3 @@ module.exports = async (req, res, next) => {
     }
   }
 };
-
-// start amount no bids - isOpen

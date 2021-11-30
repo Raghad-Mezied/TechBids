@@ -9,12 +9,12 @@ beforeEach(() => build());
 describe('filter products tests', () => {
   test('success', (done) => {
     request(app)
-      .get('/api/products?status=ended')
+      .get('/api/products?status=ended&search=lap')
       .expect('Content-Type', /json/)
       .end((err, res) => {
         if (err) return done(err);
         expect(res.body).toStrictEqual({
-          data: [
+          productData: [
             {
               id: 1,
               name: 'LabTop',
@@ -22,11 +22,7 @@ describe('filter products tests', () => {
               is_open: false,
               image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsFAAF5nU8p12eycPHmPbcRKtb0_mZIOUwKA&usqp=CAU',
               auc_end_date: '2020-12-11T22:00:00.000Z',
-              auction: [
-                {
-                  amount: 500,
-                },
-              ],
+              auc_amount: 400,
             },
           ],
         });
