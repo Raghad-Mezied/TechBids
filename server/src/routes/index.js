@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
 const {
-  serverError, clientError, signIn, handleAddUser,
-} = require('../controllers');
+  serverError, clientError, signIn, handleAddUser, getAuction,
+} = require('../controllers/index');
 
 router.post('/signIn', signIn);
-
+router.get('/product/:id/history', getAuction);
 router.post('/signup', handleAddUser);
 router.use(clientError);
 router.use(serverError);
