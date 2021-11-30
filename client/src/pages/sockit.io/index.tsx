@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
+import { useAuth } from '../../context/useAuth';
 
 // import { useParams } from 'react-router-dom';
 
@@ -9,6 +8,10 @@ const socket = io('http://localhost:7000');
 
 const BtnSocket:React.FC = () => {
   const [priceBids, setPriceBids] = useState<number>(50);
+  const user = useAuth();
+  console.log(user);
+
+  // const [userData, setUserData] = useState({});
 
   // const handleChange = (e:any) : any => {
   //   setPriceBids(e.target.value);
@@ -17,7 +20,7 @@ const BtnSocket:React.FC = () => {
 
   socket.emit('joinRoom', 1);
 
-  const sendPrice = async () => {
+  const sendPrice:any = async () => {
     if (priceBids !== undefined || !priceBids) {
       const priceData = {
         room: 1, // productId
@@ -29,8 +32,16 @@ const BtnSocket:React.FC = () => {
         }:${
           new Date(Date.now()).getSeconds()}`,
       };
+      await socket.emit('sendPrice', priceData);
+      // setPriceBids((list:any) => [...list, priceData]);
     }
   };
+
+  useEffect(() => {
+    socket.on('receiveMessage', () => {
+      // setPriceBids((list) => [...list, data]);
+    });
+  }, [socket]);
 
   return (
 
@@ -40,6 +51,7 @@ const BtnSocket:React.FC = () => {
         onClick={() => {
           console.log(priceBids);
           setPriceBids(priceBids + 50);
+          sendPrice();
         }}
       >
         50$

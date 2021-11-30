@@ -25,6 +25,10 @@ io.on('connection', (socket) => {
     console.log(`user with id : ${socket.id} join in room : ${data}`);
   });
 
+  socket.on('sendPrice', (data) => {
+    socket.to(data.room).emit('receivePrice', data);
+  });
+
   socket.on('disconnect', () => {
     console.log('user Disconnected', socket.id);
   });
