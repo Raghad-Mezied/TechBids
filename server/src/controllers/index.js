@@ -1,13 +1,11 @@
 const { serverError, clientError } = require('./error');
-const { signIn } = require('./users');
-
-const { handleAddUser } = require('./users');
-const { signUpSchema } = require('./validations');
+const { handleAddUser, signIn } = require('./users');
+const { handleGetFilteredProducts } = require('./products');
 
 module.exports = {
   serverError,
   clientError,
-  signUpSchema,
   handleAddUser,
   signIn,
+  handleGetFilteredProducts,
 };
