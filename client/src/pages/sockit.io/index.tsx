@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import io from 'socket.io-client';
+import { io } from 'socket.io-client';
 
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
-const socket = io('http://localhost:3001');
+const socket = io('http://localhost:3000');
 
 const BtnSocket:React.FC = () => {
   const [priceBids, setPriceBids] = useState<number>(50);
@@ -11,9 +11,9 @@ const BtnSocket:React.FC = () => {
   // const handleChange = (e:any) : any => {
   //   setPriceBids(e.target.value);
   // };
-  const { productId } = useParams();
+  // const { productId } = useParams();
 
-  socket.emit('joinRoom', productId);
+  socket.emit('joinRoom', '1');
 
   return (
 
@@ -28,7 +28,7 @@ const BtnSocket:React.FC = () => {
         50$
 
       </button>
-      <div>hello</div>
+      <div>{priceBids}</div>
     </div>
   );
 };

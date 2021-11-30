@@ -12,17 +12,21 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     method: 'GET',
   },
 });
 
 io.on('connection', (socket) => {
-  console.log('user connection', socket.io);
+  console.log('user connection', socket.id);
 
   socket.on('joinRoom', (data) => {
     socket.join(data);
     console.log(`user with id : ${socket.id} join in room : ${data}`);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('user Disconnected', socket.id);
   });
 });
 
