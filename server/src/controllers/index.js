@@ -3,7 +3,7 @@ const { signIn } = require('./users');
 
 const { handleAddUser } = require('./users');
 const { signUpSchema } = require('./validations');
-const { getAuction } = require('./auctions/index');
+const { getAuction } = require('./auctions');
 
 module.exports = {
   serverError,
