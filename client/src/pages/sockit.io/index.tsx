@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 
 // import { useParams } from 'react-router-dom';
 
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:7000');
 
 const BtnSocket:React.FC = () => {
   const [priceBids, setPriceBids] = useState<number>(50);
@@ -13,7 +13,7 @@ const BtnSocket:React.FC = () => {
   // };
   // const { productId } = useParams();
 
-  socket.emit('joinRoom', '1');
+  socket.emit('joinRoom', 1);
 
   return (
 
