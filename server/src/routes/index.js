@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const {
   serverError, clientError, signIn, handleAddUser, getAuction,
-} = require('../controllers/index');
+} = require('../controllers');
 
 router.post('/signIn', signIn);
 router.get('/product/:id/history', getAuction);

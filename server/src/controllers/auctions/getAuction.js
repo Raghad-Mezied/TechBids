@@ -1,5 +1,5 @@
-const { Auction } = require('../../models/index');
-const boomify = require('../../utils/index');
+const { Auction } = require('../../models');
+const boomify = require('../../utils');
 
 const getAuction = async (req, res, next) => {
   const { id } = req.params;
