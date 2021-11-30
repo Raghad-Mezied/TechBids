@@ -26,9 +26,9 @@ switch (NODE_ENV) {
 const sequelize = new Sequelize(dbUrl, {
   dialect: 'postgres',
   dialectOptions: {
-    // ssl: {
-    //   rejectUnauthorized: false,
-    // },
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
   logging: false,
 });
