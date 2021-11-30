@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { io } from 'socket.io-client';
 
@@ -14,6 +16,21 @@ const BtnSocket:React.FC = () => {
   // const { productId } = useParams();
 
   socket.emit('joinRoom', 1);
+
+  const sendPrice = async () => {
+    if (priceBids !== undefined || !priceBids) {
+      const priceData = {
+        room: 1, // productId
+        price: priceBids,
+        time:
+        `${new Date(Date.now()).getHours()
+        }:${
+          new Date(Date.now()).getMinutes()
+        }:${
+          new Date(Date.now()).getSeconds()}`,
+      };
+    }
+  };
 
   return (
 
