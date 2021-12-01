@@ -3,6 +3,7 @@ const { handleAddUser, signIn, handleAuthUser } = require('./users');
 const { handleGetFilteredProducts } = require('./products');
 const { signUpSchema } = require('./validations');
 const { productDetails } = require('./products');
+const { getAuction } = require('./auctions');
 
 module.exports = {
   serverError,
@@ -13,4 +14,5 @@ module.exports = {
   handleGetFilteredProducts,
   signUpSchema,
   handleAuthUser,
+  getAuction,
 };

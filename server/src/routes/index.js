@@ -8,6 +8,7 @@ const {
   handleAddUser,
   handleAuthUser,
   productDetails,
+  getAuction,
 } = require('../controllers');
 const { isAuth } = require('../controllers/middlewares');
 
@@ -16,6 +17,8 @@ router.post('/signIn', signIn);
 router.post('/signup', handleAddUser);
 router.get('/products', handleGetFilteredProducts);
 router.get('/product/:id', productDetails);
+router.get('/product/:id/history', getAuction);
+
 router.use(clientError);
 router.use(serverError);
 
