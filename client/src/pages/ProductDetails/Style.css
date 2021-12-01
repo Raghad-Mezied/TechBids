@@ -1,0 +1,32 @@
+.price{
+
+    display: flex;
+    flex-direction: row;
+   
+}
+.open-btns{
+    border: 1px solid #0E4DA4;
+    border-radius: 25px;
+    margin-left: 50%;
+}
+.product-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.product-image{
+    width: 42%;
+   
+    
+}
+.card-product{
+    width: 42%;
+    
+    
+}
+.img-pro{
+    width: 80%;
+}
