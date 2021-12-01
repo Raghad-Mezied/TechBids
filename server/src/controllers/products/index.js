@@ -1,3 +1,3 @@
-const handleGetFilteredProducts = require('./getFilteredProducts');
+const { productDetails } = require('./productDetails');
 
-module.exports = { handleGetFilteredProducts };
+module.exports = { productDetails };

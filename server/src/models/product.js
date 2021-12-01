@@ -28,6 +28,10 @@ const Product = sequelize.define('products', {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
+  end_date: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
