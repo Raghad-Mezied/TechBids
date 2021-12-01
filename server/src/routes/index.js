@@ -1,12 +1,19 @@
 const router = require('express').Router();
 
 const {
-  serverError, clientError, signIn, handleAddUser, getAuction,
+  serverError,
+  clientError,
+  signIn,
+  handleAddUser,
+  handleAuthUser,
+  productDetails,
 } = require('../controllers');
+const { isAuth } = require('../controllers/middlewares');
 
+router.get('/auth/user', isAuth, handleAuthUser);
 router.post('/signIn', signIn);
-router.get('/product/:id/history', getAuction);
 router.post('/signup', handleAddUser);
+router.get('/product/:id', productDetails);
 router.use(clientError);
 router.use(serverError);
 
