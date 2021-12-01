@@ -6,12 +6,16 @@ const {
   signIn,
   handleAddUser,
   handleAuthUser,
+  logout,
 } = require('../controllers');
 const { isAuth } = require('../controllers/middlewares');
 
 router.get('/auth/user', isAuth, handleAuthUser);
+
 router.post('/signIn', signIn);
 router.post('/signup', handleAddUser);
+router.post('/logout', logout);
+
 router.use(clientError);
 router.use(serverError);
 

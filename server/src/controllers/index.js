@@ -1,6 +1,7 @@
 const { serverError, clientError } = require('./error');
-const { signIn } = require('./users');
-const { handleAddUser, handleAuthUser } = require('./users');
+const {
+  signIn, handleAddUser, handleAuthUser, logout,
+} = require('./users');
 const { signUpSchema } = require('./validations');
 
 module.exports = {
@@ -10,4 +11,5 @@ module.exports = {
   handleAddUser,
   signIn,
   handleAuthUser,
+  logout,
 };

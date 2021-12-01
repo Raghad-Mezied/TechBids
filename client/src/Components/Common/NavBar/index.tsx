@@ -153,8 +153,8 @@ const NavBar : React.FC = () => {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             { !user && (
               <IconButton color="inherit" onClick={() => navigate('/signin')}>
-                <AccountCircleOutlinedIcon sx={{ marginRight: '5px' }} />
-                <Typography> Sign in </Typography>
+                <AccountCircleOutlinedIcon />
+                <Typography sx={{ fontWeight: 'bold', ml: 1 }}> Sign in </Typography>
               </IconButton>
             ) }
 
@@ -169,7 +169,7 @@ const NavBar : React.FC = () => {
               color="inherit"
             >
               <AccountCircleOutlinedIcon />
-              <Typography sx={{ ml: 1 }}>username</Typography>
+              <Typography sx={{ fontWeight: 'bold', ml: 1 }}>{user.name}</Typography>
             </IconButton>
             )}
           </Box>
