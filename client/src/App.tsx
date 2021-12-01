@@ -7,6 +7,7 @@ import { ProvideAuth } from './context/useAuth';
 import theme from './theme';
 // import SignIn from './pages/SignIn';
 import NavBar from './Components/Common/NavBar';
+import SignIn from './pages/SignIn';
 
 const App : React.FC = () => (
   <div>
@@ -21,10 +22,11 @@ const App : React.FC = () => (
                   <NavBar />
                   <div>No Place like home</div>
                 </div>
-)}
+              )}
             />
-            {/* <Route path="/signin*" element={<SignIn />} />
-            <Route path="/signup*" element={<div>signup</div>} /> */}
+            <Route path="/*" element={<div>No Place like home</div>} />
+            <Route path="/signin*" element={<SignIn />} />
+            <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
           </Routes>
         </Router>

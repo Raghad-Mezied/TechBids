@@ -6,8 +6,8 @@ import {
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import SearchIcon from '@mui/icons-material/Search';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { useAuth } from '../../../context/useAuth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../context/useAuth';
 import navLogo from '../../../images/navLogo.png';
 
 const Search = styled('div')(({ theme }) => ({
@@ -64,8 +64,8 @@ const NavBar : React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
-  // const { user, logout } = useAuth();
-  // const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleProfileMenuOpen = (event: any): any => {
     setAnchorEl(event.currentTarget);
@@ -73,6 +73,14 @@ const NavBar : React.FC = () => {
 
   const handleMenuClose = (): any => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = (): any => {
+    logout((err: any): any => {
+      if (!err) {
+        navigate('/');
+      }
+    });
   };
 
   const renderMenu = (
@@ -91,11 +99,11 @@ const NavBar : React.FC = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>My Auctions</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Win Items</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My Bids</MenuItem>
+      <MenuItem onClick={(): any => { navigate('/auctions'); }}>My Auctions</MenuItem>
+      <MenuItem onClick={(): any => { navigate('/win'); }}>Win Items</MenuItem>
+      <MenuItem onClick={(): any => { navigate('/myBids'); }}>My Bids</MenuItem>
       <Divider />
-      <MenuItem onClick={handleMenuClose}>
+      <MenuItem onClick={handleLogout}>
         <LogoutIcon sx={{ mr: 0.5 }} />
         Logout
       </MenuItem>
@@ -111,18 +119,23 @@ const NavBar : React.FC = () => {
             edge="start"
             color="inherit"
             aria-label="logo"
+            onClick={(): any => { navigate('/'); }}
             sx={{ mr: 4 }}
           >
             <img src={navLogo} alt="Logo" width="80%" />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            Bids
-          </Typography>
+
+          <Link to="/bids" style={{ textDecoration: 'none', color: '#fff' }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              Bids
+            </Typography>
+          </Link>
+
           <Box width="40%" sx={{ ml: 16 }}>
             <Search>
               <SearchIconWrapper>
@@ -135,8 +148,17 @@ const NavBar : React.FC = () => {
               />
             </Search>
           </Box>
-          <Box sx={{ flexGrow: 1 }} />
+
+          <Box sx={{ flexGrow: 0.9 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            { !user && (
+              <IconButton color="inherit" onClick={() => navigate('/signin')}>
+                <AccountCircleOutlinedIcon sx={{ marginRight: '5px' }} />
+                <Typography> Sign in </Typography>
+              </IconButton>
+            ) }
+
+            {user && (
             <IconButton
               size="large"
               // edge="end"
@@ -147,8 +169,9 @@ const NavBar : React.FC = () => {
               color="inherit"
             >
               <AccountCircleOutlinedIcon />
-              <Typography sx={{ ml: 1, mr: 3 }}>username</Typography>
+              <Typography sx={{ ml: 1 }}>username</Typography>
             </IconButton>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
