@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import GavelIcon from '@mui/icons-material/Gavel';
+import HistoryProduct from '../../Components/HistoryProduct';
 import './Style.css';
 
 const ProductDetails : React.FC = () => {
@@ -21,6 +22,10 @@ const ProductDetails : React.FC = () => {
       description: '',
       is_open: true,
       is_used: false,
+      user: {
+        name: '',
+
+      },
     },
   );
 
@@ -80,7 +85,8 @@ const ProductDetails : React.FC = () => {
                 </CardActions>
               </div>
               <Typography className="date">
-                Owner :user
+                Owner :
+                {data.user.name}
 
               </Typography>
 
@@ -103,7 +109,7 @@ const ProductDetails : React.FC = () => {
                     {' '}
                     {data.auc_inc_amount}
                     {' '}
-                    <GavelIcon />
+                    <GavelIcon className="icon" />
 
                   </Button>
                 </CardActions>
@@ -124,6 +130,7 @@ const ProductDetails : React.FC = () => {
           </Card>
         </div>
       </div>
+      <HistoryProduct />
     </div>
   );
 };

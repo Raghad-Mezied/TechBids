@@ -15,6 +15,9 @@ const HistoryProduct : React.FC = () => {
   const [history, setHistory] = useState([{
     date: '',
     amount: '',
+    user: {
+      name: '',
+    },
   }]);
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -22,7 +25,6 @@ const HistoryProduct : React.FC = () => {
     const getHsitory = async (): Promise<any> => {
       try {
         const result = await axios.get(`/api/product/${id}/history`);
-        console.log(result.data.data);
         if (result && result.data) {
           setHistory(result.data.data);
         }
@@ -55,7 +57,7 @@ const HistoryProduct : React.FC = () => {
               >
                 <TableCell component="th" scope="row" className="date-space" align="center">{row.date}</TableCell>
                 <TableCell align="center" className="date-space">{row.amount}</TableCell>
-                <TableCell align="center" className="date-space">user</TableCell>
+                <TableCell align="center" className="date-space">{row.user.name}</TableCell>
 
               </TableRow>
             ))}
