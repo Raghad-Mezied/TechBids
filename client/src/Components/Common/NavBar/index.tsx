@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import {
-  Box, AppBar, IconButton, Toolbar, Menu, MenuItem, Typography, InputBase, Divider,
+  Box, AppBar, IconButton, Toolbar, Menu, MenuItem, Typography, Divider,
 } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -9,54 +8,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/useAuth';
 import navLogo from '../../../images/navLogo.png';
+import { Search, SearchIconWrapper, StyledInputBase } from './SearchBar';
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: '2rem',
-  backgroundColor: alpha(theme.palette.common.white, 1),
-  marginRight: theme.spacing(2),
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
-
-// interface Props {
-//   searchInput: string,
-//   handleChange: any,
-//   onClickHandle: any,
-// }
-
-// const NavBar : React.FC<Props> = ({
-//   searchInput,
-//   handleChange,
-//   onClickHandle,
-// }) => {
 const NavBar : React.FC = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [search, setSearch] = useState('');
