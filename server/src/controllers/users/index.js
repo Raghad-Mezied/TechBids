@@ -1,3 +1,5 @@
+const { signIn } = require('./signIn');
 const handleAddUser = require('./addUser');
+const handleAuthUser = require('./authUser');
 
-module.exports = { handleAddUser };
+module.exports = { handleAddUser, signIn, handleAuthUser };

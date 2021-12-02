@@ -1,7 +1,19 @@
 const router = require('express').Router();
-const { serverError, clientError, handleAddUser } = require('../controllers');
 
+const {
+  serverError,
+  clientError,
+  signIn,
+  handleAddUser,
+  handleAuthUser,
+  productDetails,
+} = require('../controllers');
+const { isAuth } = require('../controllers/middlewares');
+
+router.get('/auth/user', isAuth, handleAuthUser);
+router.post('/signIn', signIn);
 router.post('/signup', handleAddUser);
+router.get('/product/:id', productDetails);
 router.use(clientError);
 router.use(serverError);
 
