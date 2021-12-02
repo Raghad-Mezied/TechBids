@@ -38,26 +38,23 @@
      padding-bottom: 30px;
 }
 .description-label{
-    font-size: 20px !important; padding-bottom: 15px
+    font-size: 20px !important; 
+    padding-bottom: 10px
 }
 .icon-btn{
     font-size: 14px;
     border: 1px solid #000 !important;
-    border-radius: 25px !important;
+     padding: 5px 10px !important;
     background: #000 !important;
   
     color: #fff !important;
 }
-.bid-btn{
-    font-size: 14px;
-    border: 1px solid #0E4DA4 !important;
 
-   
-}
 .date{
     margin-bottom: 1.5;
      color: '#263238';
       font-size: 18px !important; 
+      padding-bottom: 12px !important;
 }
 .open-btn
 {

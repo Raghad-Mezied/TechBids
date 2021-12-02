@@ -6,6 +6,7 @@ import { ProvideAuth } from './context/useAuth';
 import ProductDetails from './pages/ProductDetails';
 import theme from './theme';
 import SignIn from './pages/SignIn';
+import HistoryProduct from './Components/HistoryProduct';
 
 const App : React.FC = () => (
   <div>
@@ -17,7 +18,8 @@ const App : React.FC = () => (
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
-            <Route path="/product" element={<ProductDetails />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/product/:id/history" element={<HistoryProduct />} />
           </Routes>
         </Router>
       </ThemeProvider>

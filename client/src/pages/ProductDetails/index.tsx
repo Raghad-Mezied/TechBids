@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -10,6 +10,7 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import './Style.css';
 
 const ProductDetails : React.FC = () => {
+  const { id } = useParams();
   const [data, setData] = useState(
     {
       name: '',
@@ -22,13 +23,13 @@ const ProductDetails : React.FC = () => {
       is_used: false,
     },
   );
-  // const [historyData, setHistoryData] = useState([]);
+
   useEffect(() => {
     const source = axios.CancelToken.source();
 
-    const getCars = async (): Promise<any> => {
+    const getProduct = async (): Promise<any> => {
       try {
-        const result = await axios.get('/api/product/1');
+        const result = await axios.get(`/api/product/${id}`);
         console.log(result.data.data);
         if (result && result.data) {
           setData(result.data.data);
@@ -37,7 +38,7 @@ const ProductDetails : React.FC = () => {
         console.log(err);
       }
     };
-    getCars();
+    getProduct();
 
     return () => {
       source.cancel();
@@ -62,7 +63,11 @@ const ProductDetails : React.FC = () => {
             <CardContent>
               <div className="price">
                 <Typography sx={{ fontSize: '24px', fontWeight: 'bold', paddingTop: '10px' }} gutterBottom className="current-bid">
-                  Current Bid : 4000 $
+                  Current Bid :
+                  {' '}
+                  {data.auc_start_amount}
+                  {' '}
+                  $
                 </Typography>
                 <CardActions>
                   <Button
@@ -75,10 +80,10 @@ const ProductDetails : React.FC = () => {
                 </CardActions>
               </div>
               <Typography className="date">
-                item Condition :
-                {' '}
-                {data.is_used ? 'Used' : 'Not Used'}
+                Owner :user
+
               </Typography>
+
               <Typography variant="body2" className="date">
                 Time Left :
 
@@ -89,22 +94,26 @@ const ProductDetails : React.FC = () => {
                 {data.end_date}
               </Typography>
               <div className="price">
+
                 <CardActions>
-                  <Button className="bid-btn" size="small">
+                  <Button size="small" className="icon-btn">
+                    {' '}
                     {' '}
                     +
                     {' '}
                     {data.auc_inc_amount}
                     {' '}
-                  </Button>
-                </CardActions>
-                <CardActions>
-                  <Button size="small" className="icon-btn">
                     <GavelIcon />
+
                   </Button>
                 </CardActions>
               </div>
             </CardContent>
+            <Typography className="date">
+              item Condition :
+              {' '}
+              {data.is_used ? 'Used' : 'Not Used'}
+            </Typography>
             <Typography variant="body2" className="description-label">
               Description
 
