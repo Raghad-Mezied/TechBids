@@ -6,6 +6,7 @@ import { ProvideAuth } from './context/useAuth';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
+import Bids from './pages/Bids';
 
 const App : React.FC = () => (
   <div>
@@ -22,7 +23,7 @@ const App : React.FC = () => (
                 </div>
               )}
             />
-            <Route path="/bids*" element={<div>Bids</div>} />
+            <Route path="/bids*" element={<Bids />} />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
