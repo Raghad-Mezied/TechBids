@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import {
   Box, AppBar, IconButton, Toolbar, Menu, MenuItem, Typography, InputBase, Divider,
@@ -14,9 +14,6 @@ const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: '2rem',
   backgroundColor: alpha(theme.palette.common.white, 1),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.9),
-  },
   marginRight: theme.spacing(2),
   width: '100%',
   [theme.breakpoints.up('sm')]: {
@@ -61,7 +58,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 //   onClickHandle,
 // }) => {
 const NavBar : React.FC = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [search, setSearch] = useState('');
+
   const isMenuOpen = Boolean(anchorEl);
 
   const { user, logout } = useAuth();
@@ -73,6 +72,16 @@ const NavBar : React.FC = () => {
 
   const handleMenuClose = (): any => {
     setAnchorEl(null);
+  };
+
+  const handlePress = (data: any): any => {
+    if (data.charCode === 13) {
+      navigate(`/bids?name=${search}`);
+    }
+  };
+
+  const handleChange = (event: any): any => {
+    setSearch(event.target.value);
   };
 
   const handleLogout = (): any => {
@@ -145,6 +154,9 @@ const NavBar : React.FC = () => {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
                 sx={{ color: '#000' }}
+                value={search}
+                onChange={handleChange}
+                onKeyPress={handlePress}
               />
             </Search>
           </Box>
