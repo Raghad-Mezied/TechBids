@@ -40,6 +40,7 @@ const NavBar : React.FC = () => {
   const handleLogout = (): any => {
     logout((err: any): any => {
       if (!err) {
+        setAnchorEl(null);
         navigate('/');
       }
     });
@@ -53,11 +54,6 @@ const NavBar : React.FC = () => {
         horizontal: 'right',
       }}
       id="userMenu"
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >

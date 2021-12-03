@@ -10,9 +10,9 @@ import Bids from './pages/Bids';
 
 const App : React.FC = () => (
   <div>
-    <ProvideAuth>
-      <ThemeProvider theme={theme}>
-        <Router>
+    <Router>
+      <ProvideAuth>
+        <ThemeProvider theme={theme}>
           <Routes>
             <Route
               path="/*"
@@ -28,9 +28,9 @@ const App : React.FC = () => (
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
           </Routes>
-        </Router>
-      </ThemeProvider>
-    </ProvideAuth>
+        </ThemeProvider>
+      </ProvideAuth>
+    </Router>
 
   </div>
 );
