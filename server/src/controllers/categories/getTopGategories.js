@@ -17,7 +17,6 @@ module.exports = async (req, res, next) => {
     });
     res.json({ categoriesData });
   } catch (err) {
-    console.log(err);
     next(err);
   }
 };
