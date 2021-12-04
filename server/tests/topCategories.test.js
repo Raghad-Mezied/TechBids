@@ -1,0 +1,49 @@
+/* eslint-disable no-undef */
+const request = require('supertest');
+const app = require('../src/app');
+const { build } = require('../src/config/dbBuild');
+const { sequelize } = require('../src/config/connection');
+
+beforeEach(() => build());
+
+describe('top categories tests', () => {
+  test('success', (done) => {
+    request(app)
+      .get('/api/categories/top')
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body).toStrictEqual({
+          categoriesData: [
+            {
+              id: 4,
+              name: 'Accessories',
+              image: 'https://i.ibb.co/B4D1MjZ/headphone-Background.jpg',
+              productCount: '4',
+            },
+            {
+              id: 2,
+              name: 'DeskTop',
+              image: 'https://i.ibb.co/jz597Zy/drone-Background.jpg',
+              productCount: '2',
+            },
+            {
+              id: 3,
+              name: 'Mobile',
+              image: 'https://i.ibb.co/7YBQspr/charger-Background.jpg',
+              productCount: '1',
+            },
+            {
+              id: 1,
+              name: 'LapTop',
+              image: 'https://i.ibb.co/nB3gpsz/labtop-Background.jpg',
+              productCount: '0',
+            },
+          ],
+        });
+        return done();
+      });
+  });
+});
+
+afterAll(() => sequelize.close());
