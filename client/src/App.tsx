@@ -3,6 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ProvideAuth } from './context/useAuth';
+import './App.css';
+import Header from './Components/Header';
 
 import theme from './theme';
 import SignIn from './pages/SignIn';
@@ -13,7 +15,7 @@ const App : React.FC = () => (
       <ThemeProvider theme={theme}>
         <Router>
           <Routes>
-            <Route path="/*" element={<div>No Place like home</div>} />
+            <Route path="/*" element={<Header />} />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
