@@ -12,6 +12,10 @@ const Category = sequelize.define('categories', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  image: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+  },
 });
 
 module.exports = { Category };
