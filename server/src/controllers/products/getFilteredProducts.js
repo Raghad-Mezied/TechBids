@@ -67,7 +67,6 @@ module.exports = async (req, res, next) => {
 
     res.json({ productData });
   } catch (err) {
-    console.log(err);
     if (err.name === 'ValidationError') {
       next(boomify(400, err.details[0].message, 'Bad Request'));
     } else {
