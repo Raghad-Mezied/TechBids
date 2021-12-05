@@ -20,7 +20,7 @@ const Product = sequelize.define('products', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  auc_start_amount: {
+  auc_amount: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
@@ -54,6 +54,10 @@ const Product = sequelize.define('products', {
     type: Sequelize.BOOLEAN,
     allowNull: false,
     defaultValue: false,
+  },
+  auc_end_date: {
+    type: Sequelize.DATE,
+    allowNull: false,
   },
 });
 
