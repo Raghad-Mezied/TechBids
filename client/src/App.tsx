@@ -3,10 +3,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ProvideAuth } from './context/useAuth';
+import Header from './Components/Header';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import Bids from './pages/Bids';
+import './App.css';
 
 const App : React.FC = () => (
   <div>
@@ -19,7 +21,7 @@ const App : React.FC = () => (
               element={(
                 <div>
                   <NavBar />
-                  <div>No Place like home</div>
+                  <Header />
                 </div>
               )}
             />

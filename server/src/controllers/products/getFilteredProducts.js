@@ -34,7 +34,7 @@ module.exports = async (req, res, next) => {
     });
 
     const productData = await Product.findAll({
-      attributes: ['id', 'name', 'description', 'is_open', 'image', 'auc_end_date', 'auc_amount'],
+      attributes: ['id', 'name', 'description', 'is_open', 'image', 'end_date', 'auc_amount'],
       offset: (page - 1) * 6,
       limit: 6,
       where: {

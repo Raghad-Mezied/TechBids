@@ -1,0 +1,53 @@
+
+.cards-container{
+    display: flex;
+    width: 75%;
+    margin: 6vh auto;
+    justify-content: space-between;
+}
+.card-container{
+    display: flex;
+    width: 30%;
+}
+.card-container .MuiIcon-root{
+    width: unset !important;
+    margin: 2px 15px !important;
+    font-size: 2.1rem;
+    
+}
+.content-container .MuiTypography-h5 {
+    font-weight: bold;
+    font-family: 'Inter';
+    font-size: .95rem;
+}
+.content-container .MuiTypography-body2 {
+    font-weight: 600;
+    font-family: 'Inter';
+    font-size: .98rem;
+}
+.img-container .MuiButton-outlined{
+    color: white !important;
+    border: 1.3px solid white !important;
+    border-radius: 50px !important;
+    padding: 4px 10px !important;
+    font-size: .55rem !important;
+}
+.img-container {
+    width: 43%;
+    margin: 5vh auto;
+}
+.img-content{
+    position: absolute;
+    color: white;
+    top: 25%;
+    left: 7%;
+}
+.img-container .MuiTypography-h6{
+    font-family: "Inter" !important;
+    font-weight: bold;
+}
+.img-container .MuiTypography-body1{
+    font-family: "Inter" !important;
+    font-size: .66rem;
+    margin: -5px 0 13px
+}
