@@ -5,6 +5,7 @@ const { build } = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
 beforeEach(() => build());
+jest.useRealTimers();
 
 describe('product details tests', () => {
   test('get product returns a status code of 200', (done) => {
