@@ -14,6 +14,11 @@
       "name" : "test3",
       "email" : "test3@gmail.com",
       "password" : "$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y"
+    },
+    {
+      "name" : "test4",
+      "email" : "test4@gmail.com",
+      "password" : "$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y"
     }
   ],
   "categories" : [

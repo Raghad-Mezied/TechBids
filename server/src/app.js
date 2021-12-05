@@ -6,6 +6,7 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 const http = require('http');
 const router = require('./routes');
+const { Auction } = require('./models');
 
 const app = express();
 const server = http.createServer(app);
@@ -27,7 +28,13 @@ io.on('connection', (socket) => {
 
   socket.on('sendPrice', (data) => {
     socket.to(data.room).emit('receivePrice', data);
-    console.log('ssssssssssssssssssss', data);
+    const lastAuction = Auction.create({
+      user_id: data.user_id,
+      product_id: data.room,
+      amount: data.amount,
+      date: data.date,
+    });
+    console.log(lastAuction);
   });
 
   socket.on('disconnect', () => {
