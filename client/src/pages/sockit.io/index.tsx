@@ -11,8 +11,6 @@ const BtnSocket:React.FC = () => {
   const user = useAuth();
   console.log(user);
 
-  // const [userData, setUserData] = useState({});
-
   // const handleChange = (e:any) : any => {
   //   setPriceBids(e.target.value);
   // };
@@ -33,13 +31,12 @@ const BtnSocket:React.FC = () => {
           new Date(Date.now()).getSeconds()}`,
       };
       await socket.emit('sendPrice', priceData);
-      // setPriceBids((list:any) => [...list, priceData]);
     }
   };
 
   useEffect(() => {
-    socket.on('receiveMessage', () => {
-      // setPriceBids((list) => [...list, data]);
+    socket.on('receivePrice', (data) => {
+      setPriceBids(data.price);
     });
   }, [socket]);
 
@@ -49,7 +46,6 @@ const BtnSocket:React.FC = () => {
       <button
         type="button"
         onClick={() => {
-          console.log(priceBids);
           setPriceBids(priceBids + 50);
           sendPrice();
         }}
