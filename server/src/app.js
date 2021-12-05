@@ -7,6 +7,7 @@ const { Server } = require('socket.io');
 const http = require('http');
 const router = require('./routes');
 const { Auction, Product } = require('./models');
+const { boomify } = require('./utils');
 
 const app = express();
 const server = http.createServer(app);
@@ -41,11 +42,11 @@ io.on('connection', (socket) => {
       socket.to(data.room).emit('receivePrice', {
         user_id: data.user_id,
         room: data.room,
-        amount: product.auc_amount += product.auc_inc_amount,
+        amount: product.auc_amount,
         date: data.date,
       });
     } catch (err) {
-      console.log('error socket', err);
+      throw boomify(500, 'Socket Error', 'Socket Error');
     }
   });
 

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { format } from 'date-fns';
+import axios from 'axios';
 import { useAuth } from '../../context/useAuth';
+import { useSnack } from '../../context/useSnack';
 
 // import { useParams } from 'react-router-dom';
 
@@ -10,6 +12,8 @@ const socket = io('http://localhost:7000');
 const BtnSocket:React.FC = () => {
   const [priceBids, setPriceBids] = useState<number>(50);
   const { user } = useAuth();
+
+  const { showSnack } = useSnack();
 
   // const { productId } = useParams();
 
@@ -28,13 +32,21 @@ const BtnSocket:React.FC = () => {
     }
   };
 
+  const getProduct = async ():Promise<any> => {
+    try {
+      const getProductData = await axios.get('/api/product/2');
+      setPriceBids(getProductData.data.data.auc_amount);
+    } catch (err: any) {
+      showSnack(err.response.data.message, 'error');
+    }
+  };
+
   useEffect(() => {
+    getProduct();
     socket.on('receivePrice', (data) => {
-      console.log('ssdasdasdaw');
-      console.log(data);
       setPriceBids(data.amount);
     });
-  }, [socket]);
+  }, []);
 
   return (
     <div>
@@ -42,6 +54,7 @@ const BtnSocket:React.FC = () => {
         type="button"
         onClick={() => {
           sendPrice();
+          getProduct();
         }}
       >
         50$
