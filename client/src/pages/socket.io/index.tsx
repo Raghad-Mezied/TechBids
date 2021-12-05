@@ -29,7 +29,6 @@ const BtnSocket:React.FC = () => {
   };
 
   useEffect(() => {
-    console.log('ssssssssssssssssssssssssssssdasdasdasdasda');
     socket.on('receivePrice', (data) => {
       console.log(data);
       setPriceBids(data.price);
@@ -41,7 +40,6 @@ const BtnSocket:React.FC = () => {
       <button
         type="button"
         onClick={() => {
-          setPriceBids(priceBids + 50);
           sendPrice();
         }}
       >

@@ -6,7 +6,7 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 const http = require('http');
 const router = require('./routes');
-const { Auction } = require('./models');
+const { Auction, Product } = require('./models');
 
 const app = express();
 const server = http.createServer(app);
@@ -26,15 +26,24 @@ io.on('connection', (socket) => {
     console.log(`user with id : ${socket.id} join in room : ${data}`);
   });
 
-  socket.on('sendPrice', (data) => {
-    socket.to(data.room).emit('receivePrice', data);
-    const lastAuction = Auction.create({
-      user_id: data.user_id,
-      product_id: data.room,
-      amount: data.amount,
-      date: data.date,
-    });
-    console.log(lastAuction);
+  socket.on('sendPrice', async (data) => {
+    try {
+      const lastAuction = await Auction.create({
+        user_id: data.user_id,
+        product_id: data.room,
+        amount: data.amount,
+        date: data.date,
+      });
+      const product = await Product.increment(
+        'auc_amount',
+        { by: 50, where: { id: lastAuction.product_id } },
+      );
+      socket.to(data.room).emit('receivePrice', data);
+      console.log('ssaaaaaaaaaaaaaaaaaaaaaaaaaa', product);
+      console.log(lastAuction);
+    } catch (err) {
+      console.log('error socket', err);
+    }
   });
 
   socket.on('disconnect', () => {
