@@ -8,8 +8,8 @@ const socket = io('http://localhost:7000');
 
 const BtnSocket:React.FC = () => {
   const [priceBids, setPriceBids] = useState<number>(50);
-  const user = useAuth();
-  console.log(user);
+  const { user } = useAuth();
+  console.log(user?.name);
 
   // const handleChange = (e:any) : any => {
   //   setPriceBids(e.target.value);
