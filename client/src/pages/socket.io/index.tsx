@@ -13,13 +13,13 @@ const BtnSocket:React.FC = () => {
 
   // const { productId } = useParams();
 
-  socket.emit('joinRoom', 1);
+  socket.emit('joinRoom', 2);
 
   const sendPrice:any = async () => {
     if (priceBids !== undefined || !priceBids) {
       const priceData = {
         user_id: user.id,
-        room: 1, // productId
+        room: 2, // productId
         amount: priceBids,
         date: format(new Date(Date.now()), 'yyyy-MM-dd HH:mm:ss')
         ,
@@ -30,8 +30,9 @@ const BtnSocket:React.FC = () => {
 
   useEffect(() => {
     socket.on('receivePrice', (data) => {
+      console.log('ssdasdasdaw');
       console.log(data);
-      setPriceBids(data.price);
+      setPriceBids(data.amount);
     });
   }, [socket]);
 
