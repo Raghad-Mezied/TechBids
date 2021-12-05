@@ -23,11 +23,11 @@
     },
     {
       "name" : "DeskTop",
-      "image": "https://i.ibb.co/jz597Zy/drone-Background.jpg"
+      "image": "https://www.linkpicture.com/q/desktop.png"
     },
     {
       "name" : "Mobile",
-      "image": "https://i.ibb.co/7YBQspr/charger-Background.jpg"
+      "image": "https://www.linkpicture.com/q/mobile_3.png"
     },
     {
       "name" : "Accessories",
@@ -42,7 +42,7 @@
       "category_id" : 4,
       "auc_amount" : 400,
       "auc_inc_amount" : 50,
-     "end_date":"2021-11-29T14:34:03.800Z",
+      "end_date":"2021-11-29T14:34:03.800Z",
       "name" : "LabTop",
       "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsFAAF5nU8p12eycPHmPbcRKtb0_mZIOUwKA&usqp=CAU",
       "description" : "Microsoft Surface Laptop 4 13.5” Touch-Screen – AMD Ryzen 5 Surface Edition - 8GB Memory - 256GB Solid State Drive (Latest Model) - Platinum",
@@ -76,7 +76,6 @@
       "description" : "Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh RateSamsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
       "is_open" : true,
       "is_used" : true
-    
     },
     {
       "id": 4,
@@ -140,7 +139,7 @@
     {
       "user_id" : 1,
       "product_id" : 1,
-     "date": "2021-11-29T14:34:03.800Z",
+      "date": "2021-11-29T14:34:03.800Z",
       "amount" : 500
     },
     {

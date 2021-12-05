@@ -24,13 +24,13 @@ describe('top categories tests', () => {
             {
               id: 2,
               name: 'DeskTop',
-              image: 'https://i.ibb.co/jz597Zy/drone-Background.jpg',
+              image: 'https://www.linkpicture.com/q/desktop.png',
               productCount: '2',
             },
             {
               id: 3,
               name: 'Mobile',
-              image: 'https://i.ibb.co/7YBQspr/charger-Background.jpg',
+              image: 'https://www.linkpicture.com/q/mobile_3.png',
               productCount: '1',
             },
             {
