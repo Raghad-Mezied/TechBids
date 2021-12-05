@@ -1,5 +1,7 @@
 const { serverError, clientError } = require('./error');
-const { handleAddUser, signIn, handleAuthUser } = require('./users');
+const {
+  signIn, handleAddUser, handleAuthUser, logout,
+} = require('./users');
 const { signUpSchema } = require('./validations');
 const { productDetails } = require('./products/index');
 
@@ -11,4 +13,5 @@ module.exports = {
   productDetails,
   signIn,
   handleAuthUser,
+  logout,
 };
