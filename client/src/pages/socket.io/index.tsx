@@ -17,8 +17,6 @@ const BtnSocket:React.FC = () => {
 
   // const { productId } = useParams();
 
-  socket.emit('joinRoom', 2);
-
   const sendPrice:any = async () => {
     if (priceBids !== undefined || !priceBids) {
       const priceData = {
@@ -42,6 +40,7 @@ const BtnSocket:React.FC = () => {
   };
 
   useEffect(() => {
+    socket.emit('joinRoom', 2);
     getProduct();
     socket.on('receivePrice', (data) => {
       setPriceBids(data.amount);
