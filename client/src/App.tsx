@@ -6,6 +6,7 @@ import { ProvideAuth } from './context/useAuth';
 
 import theme from './theme';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 const App : React.FC = () => (
   <div>
@@ -15,7 +16,7 @@ const App : React.FC = () => (
           <Routes>
             <Route path="/*" element={<div>No Place like home</div>} />
             <Route path="/signin*" element={<SignIn />} />
-            <Route path="/signup*" element={<div>signup</div>} />
+            <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
           </Routes>
         </Router>
