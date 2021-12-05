@@ -11,9 +11,6 @@ const BtnSocket:React.FC = () => {
   const { user } = useAuth();
   console.log(user?.name);
 
-  // const handleChange = (e:any) : any => {
-  //   setPriceBids(e.target.value);
-  // };
   // const { productId } = useParams();
 
   socket.emit('joinRoom', 1);
@@ -21,6 +18,7 @@ const BtnSocket:React.FC = () => {
   const sendPrice:any = async () => {
     if (priceBids !== undefined || !priceBids) {
       const priceData = {
+        userName: user?.name,
         room: 1, // productId
         price: priceBids,
         time:
@@ -36,12 +34,12 @@ const BtnSocket:React.FC = () => {
 
   useEffect(() => {
     socket.on('receivePrice', (data) => {
+      console.log(data);
       setPriceBids(data.price);
     });
   }, [socket]);
 
   return (
-
     <div>
       <button
         type="button"
@@ -51,7 +49,6 @@ const BtnSocket:React.FC = () => {
         }}
       >
         50$
-
       </button>
       <div>{priceBids}</div>
     </div>

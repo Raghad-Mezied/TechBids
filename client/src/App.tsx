@@ -7,6 +7,7 @@ import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import Bids from './pages/Bids';
+import BtnSocket from './pages/sockit.io';
 
 const App : React.FC = () => (
   <div>
@@ -20,6 +21,7 @@ const App : React.FC = () => (
                 <div>
                   <NavBar />
                   <div>No Place like home</div>
+                  <BtnSocket />
                 </div>
               )}
             />
