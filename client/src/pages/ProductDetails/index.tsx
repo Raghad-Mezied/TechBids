@@ -8,17 +8,18 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import GavelIcon from '@mui/icons-material/Gavel';
 import HistoryProduct from '../../Components/HistoryProduct';
+import Timer from '../../Components/Common/Timer';
 import './Style.css';
 
 const ProductDetails : React.FC = () => {
   const { id } = useParams();
+
   const [data, setData] = useState(
     {
       name: '',
       auc_start_amount: '',
       auc_inc_amount: '',
-      end_date: '',
-
+      end_date: null,
       description: '',
       is_open: true,
       is_used: false,
@@ -35,7 +36,7 @@ const ProductDetails : React.FC = () => {
     const getProduct = async (): Promise<any> => {
       try {
         const result = await axios.get(`/api/product/${id}`);
-        console.log(result.data.data);
+
         if (result && result.data) {
           setData(result.data.data);
         }
@@ -49,6 +50,7 @@ const ProductDetails : React.FC = () => {
       source.cancel();
     };
   });
+  const date = data.end_date;
   return (
     <div>
       <div>
@@ -94,6 +96,8 @@ const ProductDetails : React.FC = () => {
                 Time Left :
 
               </Typography>
+              {data.end_date && <Timer futureDate={new Date(data.end_date)} />}
+
               <Typography className="date">
                 Auction ends:
                 {' '}
