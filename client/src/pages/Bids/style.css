@@ -11,19 +11,14 @@
 }
 .filter-title{
   font-weight: bolder !important;
-  font-family: 'Roboto' !important;
   color: black !important;
   font-size: 1.1rem !important;
-}
-.filter-content{
-  font-family: 'Roboto' !important;
 }
 .container{
   margin: 10px 20px;
 }
 .container .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
   font-size: .9rem;
-  font-family: 'Roboto';
 }
 .filter-container{
   margin-bottom: 3vh !important;
@@ -35,7 +30,6 @@
 }
 .list-container .css-1fg13to-MuiTypography-root{
   font-size: .9rem !important;
-  font-family: 'Roboto' !important;
   line-height: 0.7 !important;
   margin: 0 5px !important;
 }
