@@ -27,20 +27,19 @@ const BidsCategoriesSelect: React.FC<Prop> = ({ setCategoryId }) => {
   };
 
   useEffect(() => {
-    const myAbortController = new AbortController();
-    async function fetchCategories(): Promise<void> {
+    const source = axios.CancelToken.source();
+    const fetchCategories = async ():Promise<void> => {
       try {
-        const data = await axios.get('/api/categories', { signal: myAbortController.signal });
+        const data = await axios.get('/api/categories');
         setCategories(data.data.categoriesData);
       } catch (err: any) {
-        if (!err.constructor.name) {
-          showSnack(err.response.data.message, 'error');
-        }
+        showSnack(err.response.data.message, 'error');
       }
-    }
+    };
     fetchCategories();
-    return () => {
-      myAbortController.abort();
+
+    return ():void => {
+      source.cancel();
     };
   }, []);
 
