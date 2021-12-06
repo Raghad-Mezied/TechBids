@@ -8,6 +8,7 @@ import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import Bids from './pages/Bids';
+import UserProducts from './pages/UserProducts';
 import './App.css';
 
 const App : React.FC = () => (
@@ -26,6 +27,7 @@ const App : React.FC = () => (
               )}
             />
             <Route path="/bids*" element={<Bids />} />
+            <Route path="/myProducts*" element={<UserProducts />} />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
