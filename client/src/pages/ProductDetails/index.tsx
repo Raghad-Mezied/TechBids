@@ -88,7 +88,7 @@ const ProductDetails : React.FC = () => {
                     className="open-btn"
                     size="small"
                   >
-                    {!data.is_open ? 'open' : 'close'}
+                    {data.is_open ? 'open' : 'close'}
 
                   </Button>
                 </CardActions>
