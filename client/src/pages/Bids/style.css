@@ -39,3 +39,6 @@
   line-height: 0.7 !important;
   margin: 0 5px !important;
 }
+.filter-container .MuiListItemButton-root{
+  margin-left: 20px
+}

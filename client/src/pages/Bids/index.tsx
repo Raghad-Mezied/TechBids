@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import {
-  Typography,
-} from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import BidsStatusCheckBox from '../../Components/BidsStatusCheckBox';
 import BidsDetailsPriceBar from '../../Components/BidsDetailsPriceBar';
@@ -16,6 +13,8 @@ const Bids : React.FC = () => {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
 
+  console.log(categoryId, query);
+
   return (
     <div className="bids-container">
       <div className="filters-container">
@@ -23,7 +22,6 @@ const Bids : React.FC = () => {
         <BidsDetailsPriceBar price={price} setPrice={setPrice} />
         <BidsStatusCheckBox status={status} setStatus={setStatus} />
       </div>
-      {/* <Typography>{query.get('name')}</Typography> */}
     </div>
   );
 };
