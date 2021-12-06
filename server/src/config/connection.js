@@ -4,14 +4,14 @@ require('env2')('.env');
 const Sequelize = require('sequelize');
 
 const {
-  DB_URL, DEV_DB_URL, TEST_DB_URL, NODE_ENV,
+  DATABASE_URL, DEV_DB_URL, TEST_DB_URL, NODE_ENV,
 } = process.env;
 
 let dbUrl = '';
 
 switch (NODE_ENV) {
   case 'production':
-    dbUrl = DB_URL;
+    dbUrl = DATABASE_URL;
     break;
   case 'development':
     dbUrl = DEV_DB_URL;
