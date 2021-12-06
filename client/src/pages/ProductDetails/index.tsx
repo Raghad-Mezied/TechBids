@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import GavelIcon from '@mui/icons-material/Gavel';
 import HistoryProduct from '../../Components/HistoryProduct';
 import Timer from '../../Components/Common/Timer';
+import NavBar from '../../Components/Common/NavBar';
 import './Style.css';
 
 const ProductDetails : React.FC = () => {
@@ -23,6 +24,7 @@ const ProductDetails : React.FC = () => {
       description: '',
       is_open: true,
       is_used: false,
+      auc_amount: '',
       user: {
         name: '',
 
@@ -50,10 +52,15 @@ const ProductDetails : React.FC = () => {
       source.cancel();
     };
   });
-  const date = data.end_date;
+
   return (
     <div>
+      <NavBar />
+
       <div>
+        <br />
+        <br />
+        <br />
         <Typography sx={{
           fontSize: '30px', fontWeight: 'bold', paddingLeft: '15%', paddingBottom: '15px',
         }}
@@ -72,7 +79,7 @@ const ProductDetails : React.FC = () => {
                 <Typography sx={{ fontSize: '24px', fontWeight: 'bold', paddingTop: '10px' }} gutterBottom className="current-bid">
                   Current Bid :
                   {' '}
-                  {data.auc_start_amount}
+                  {data.auc_amount}
                   {' '}
                   $
                 </Typography>

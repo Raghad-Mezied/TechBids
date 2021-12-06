@@ -15,15 +15,16 @@ describe('product details tests', () => {
       .end((err, res) => {
         if (err) return done(err);
         const expected = {
-          data: {
-            user_id: 1,
-            product_id: 1,
-            amount: 500,
-
-          },
-
+          data: [
+            {
+              id: 1,
+              user_id: 1,
+              product_id: 1,
+              date: '2022-11-29T14:34:03.800Z',
+              amount: 500,
+            },
+          ],
         };
-
         const actual = res.body;
         expect(actual).toMatchObject(expected);
         return done();
