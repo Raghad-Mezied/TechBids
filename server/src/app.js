@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-router.use(clientError);
-router.use(serverError);
+app.use(clientError);
+app.use(serverError);
 
 module.exports = app;
