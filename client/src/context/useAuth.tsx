@@ -17,7 +17,7 @@ const useProvideAuth = () : AuthContext => {
     callback: any = null,
   ) : Promise<any> => {
     try {
-      const res = await axios.post('/api/login', {
+      const res = await axios.post('/api/signIn', {
         email,
         password,
       });

@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../src/app');
-const dbBuilder = require('../src/config/dbBuild');
+const { build } = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
-beforeEach(() => dbBuilder());
+beforeEach(() => build());
 
 describe('Sign in test with status code 201', () => {
   test('Sign in test with status code 201', (done) => {
