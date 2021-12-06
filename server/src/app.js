@@ -2,6 +2,10 @@ require('env2')('.env');
 const { join } = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const {
+  serverError,
+  clientError,
+} = require('./controllers');
 const router = require('./routes');
 
 const app = express();
@@ -18,5 +22,8 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
   });
 }
+
+router.use(clientError);
+router.use(serverError);
 
 module.exports = app;
