@@ -55,10 +55,6 @@ const Product = sequelize.define('products', {
     allowNull: false,
     defaultValue: false,
   },
-  auc_end_date: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
 });
 
 module.exports = { Product };

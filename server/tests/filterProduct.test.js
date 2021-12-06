@@ -21,7 +21,7 @@ describe('filter products tests', () => {
               description: 'Microsoft Surface Laptop 4 13.5” Touch-Screen – AMD Ryzen 5 Surface Edition - 8GB Memory - 256GB Solid State Drive (Latest Model) - Platinum',
               is_open: false,
               image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsFAAF5nU8p12eycPHmPbcRKtb0_mZIOUwKA&usqp=CAU',
-              auc_end_date: '2020-12-11T22:00:00.000Z',
+              end_date: '2021-11-29T14:34:03.800Z',
               auc_amount: 400,
             },
           ],
