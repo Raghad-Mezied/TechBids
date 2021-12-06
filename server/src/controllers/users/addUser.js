@@ -23,7 +23,14 @@ module.exports = async (req, res, next) => {
       const hashedPassword = await hash(password, 10);
       const userData = await User.create({ name, email, password: hashedPassword });
       const token = await signTokenPromise(userData.dataValues.id, name, 'false');
-      res.status(201).cookie('token', token, { httpOnly: true, secure: true }).json({ message: 'signed up successfully' });
+      res.status(201).cookie('token', token, { httpOnly: true, secure: true })
+        .json({
+          message: 'signed up successfully',
+          user: {
+            id: userData.dataValues.id,
+            name: userData.dataValues.name,
+          },
+        });
     } else {
       throw boomify(409, 'exist email', 'This email is already connected to an account');
     }

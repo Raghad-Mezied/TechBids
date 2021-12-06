@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import Bids from './pages/Bids';
 import './App.css';
 
@@ -34,7 +35,7 @@ const App : React.FC = () => (
 )}
             />
             <Route path="/signin*" element={<SignIn />} />
-            <Route path="/signup*" element={<div>signup</div>} />
+            <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
           </Routes>
         </ThemeProvider>

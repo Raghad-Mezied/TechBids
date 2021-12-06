@@ -36,7 +36,9 @@ const Header: FC = () => {
         const data = await axios.get('/api/categories/top');
         setCategories(data.data.categoriesData);
       } catch (err: any) {
-        showSnack(err.response.data.message, 'error');
+        if (err.name) {
+          showSnack(err.response.data.message, 'error');
+        }
       }
     };
     fetchingTopCategories();
