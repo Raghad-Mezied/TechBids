@@ -20,12 +20,16 @@ const Product = sequelize.define('products', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  auc_start_amount: {
+  auc_amount: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
   auc_inc_amount: {
     type: Sequelize.FLOAT,
+    allowNull: false,
+  },
+  end_date: {
+    type: Sequelize.DATE,
     allowNull: false,
   },
   name: {

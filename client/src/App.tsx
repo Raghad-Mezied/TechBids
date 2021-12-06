@@ -1,14 +1,46 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { ProvideAuth } from './context/useAuth';
+import Header from './Components/Header';
+import theme from './theme';
+import NavBar from './Components/Common/NavBar';
+import SignIn from './pages/SignIn';
+import Bids from './pages/Bids';
 import './App.css';
-import BidsDetailsCheckBox from './pages/BidsDetailsCheckBox';
-import BidsDetailsPriceBar from './pages/BidsDetailsPriceBar';
-import BidsDetailsSelect from './pages/BidsDetailsSelect';
 
 const App : React.FC = () => (
-  <div className="App">
-    <BidsDetailsSelect value="hello" text="hapepe" item={['Mobile', 'Computers', ' Gaming']} />
-    <BidsDetailsPriceBar />
-    <BidsDetailsCheckBox />
+  <div>
+    <Router>
+      <ProvideAuth>
+        <ThemeProvider theme={theme}>
+          <Routes>
+            <Route
+              path="/*"
+              element={(
+                <div>
+                  <NavBar />
+                  <Header />
+                </div>
+              )}
+            />
+            <Route
+              path="/bids*"
+              element={(
+                <>
+                  <NavBar />
+                  <Bids />
+                </>
+)}
+            />
+            <Route path="/signin*" element={<SignIn />} />
+            <Route path="/signup*" element={<div>signup</div>} />
+            <Route path="*" element={<div>NOT FOUND</div>} />
+          </Routes>
+        </ThemeProvider>
+      </ProvideAuth>
+    </Router>
+
   </div>
 );
 

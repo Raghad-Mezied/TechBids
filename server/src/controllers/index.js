@@ -1,6 +1,14 @@
 const { serverError, clientError } = require('./error');
-const { handleAddUser, signIn } = require('./users');
 const { signUpSchema } = require('./validations');
+const { handleGetTopGategories, handleGetGategories } = require('./categories');
+const {
+  handleAddUser,
+  signIn,
+  handleAuthUser,
+  logout,
+} = require('./users');
+const { handleGetFilteredProducts, productDetails } = require('./products');
+const { getAuction } = require('./auctions');
 
 module.exports = {
   serverError,
@@ -8,4 +16,11 @@ module.exports = {
   signUpSchema,
   signIn,
   handleAddUser,
+  productDetails,
+  handleGetFilteredProducts,
+  handleAuthUser,
+  handleGetTopGategories,
+  getAuction,
+  logout,
+  handleGetGategories,
 };
