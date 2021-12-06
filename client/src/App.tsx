@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
@@ -25,7 +24,15 @@ const App : React.FC = () => (
                 </div>
               )}
             />
-            <Route path="/bids*" element={<Bids />} />
+            <Route
+              path="/bids*"
+              element={(
+                <>
+                  <NavBar />
+                  <Bids />
+                </>
+)}
+            />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
