@@ -101,7 +101,7 @@ const SignUpForm : React.FC<Props> = ({
       error={confirmPasswordError}
       helperText={
         confirmPasswordError
-          ? 'Please enter Password with at least 8 characters'
+          ? 'Confirm password must equal Password, with at least 8 characters'
           : ''
       }
       onChange={handleChange}

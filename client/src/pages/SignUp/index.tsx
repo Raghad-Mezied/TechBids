@@ -44,7 +44,7 @@ const SignUp : React.FC = () => {
       setError({
         name: false, email: false, password: true, confirmPassword: false,
       });
-    } else if (password !== confirmPassword) {
+    } else if (password !== confirmPassword || confirmPassword.length < 8) {
       setError({
         name: false, email: false, password: false, confirmPassword: true,
       });
