@@ -11,6 +11,7 @@ const {
   productDetails,
   handleGetTopGategories,
   getAuction,
+  handleGetGategories,
 } = require('../controllers');
 
 const { isAuth } = require('../controllers/middlewares');
@@ -23,6 +24,7 @@ router.post('/logout', logout);
 router.get('/product/:id', productDetails);
 router.get('/product/:id/history', getAuction);
 router.get('/categories/top', handleGetTopGategories);
+router.get('/categories', handleGetGategories);
 router.get('/product/:id/history', getAuction);
 
 router.use(clientError);

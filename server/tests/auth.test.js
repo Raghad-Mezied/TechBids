@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const request = require('supertest');
-const app = require('../src/app');
+const { app } = require('../src/app');
 const { build } = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
@@ -16,8 +16,8 @@ describe('auth tests', () => {
         if (err) return done(err);
         expect(res.body.id).toBe(3);
         expect(res.body.name).toBe('test3');
+        return done();
       });
-    return done();
   });
   test('without token', (done) => {
     request(app)
