@@ -6,38 +6,32 @@ const { sequelize } = require('../src/config/connection');
 
 beforeEach(() => build());
 
-describe('top categories tests', () => {
+describe('all categories tests', () => {
   test('success', (done) => {
     request(app)
-      .get('/api/categories/top')
+      .get('/api/categories')
       .expect('Content-Type', /json/)
       .end((err, res) => {
         if (err) return done(err);
         expect(res.body).toStrictEqual({
           categoriesData: [
             {
-              id: 4,
-              name: 'Accessories',
-              image: 'https://i.ibb.co/B4D1MjZ/headphone-Background.jpg',
-              productCount: '4',
+              id: 1,
+              name: 'LapTop',
             },
+
             {
               id: 2,
               name: 'DeskTop',
-              image: 'https://www.linkpicture.com/q/desktop.png',
-              productCount: '2',
             },
             {
               id: 3,
               name: 'Mobile',
-              image: 'https://www.linkpicture.com/q/mobile_3.png',
-              productCount: '1',
             },
+
             {
-              id: 1,
-              name: 'LapTop',
-              image: 'https://i.ibb.co/nB3gpsz/labtop-Background.jpg',
-              productCount: '0',
+              id: 4,
+              name: 'Accessories',
             },
           ],
         });

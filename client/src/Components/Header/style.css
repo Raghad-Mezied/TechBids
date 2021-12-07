@@ -17,12 +17,10 @@
 }
 .content-container .MuiTypography-h5 {
     font-weight: bold;
-    font-family: 'Inter';
-    font-size: .95rem;
+    font-size: 1.1rem;
 }
 .content-container .MuiTypography-body2 {
     font-weight: 600;
-    font-family: 'Inter';
     font-size: .98rem;
 }
 .img-container .MuiButton-outlined{
@@ -43,11 +41,9 @@
     left: 7%;
 }
 .img-container .MuiTypography-h6{
-    font-family: "Inter" !important;
     font-weight: bold;
 }
 .img-container .MuiTypography-body1{
-    font-family: "Inter" !important;
-    font-size: .66rem;
+    font-size: .7rem;
     margin: -5px 0 13px
 }
