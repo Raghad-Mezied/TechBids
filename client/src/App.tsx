@@ -32,7 +32,7 @@ const App : React.FC = () => (
             <Route path="/signup*" element={<div>signup</div>} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/product/:id/history" element={<HistoryProduct />} />
+            
           </Routes>
         </ThemeProvider>
       </ProvideAuth>

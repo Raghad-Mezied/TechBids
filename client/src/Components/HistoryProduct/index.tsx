@@ -8,10 +8,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useSnack } from '../../context/useSnack';
 import './Style.css';
 
 const HistoryProduct : React.FC = () => {
   const { id } = useParams();
+  const { showSnack } = useSnack();
   const [history, setHistory] = useState([{
     date: '',
     amount: '',
@@ -28,8 +30,8 @@ const HistoryProduct : React.FC = () => {
         if (result && result.data) {
           setHistory(result.data.data);
         }
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        showSnack(error, 'error');
       }
     };
     getHsitory();

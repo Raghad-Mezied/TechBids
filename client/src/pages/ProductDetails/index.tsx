@@ -10,11 +10,12 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import HistoryProduct from '../../Components/HistoryProduct';
 import Timer from '../../Components/Common/Timer';
 import NavBar from '../../Components/Common/NavBar';
+import { useSnack } from '../../context/useSnack';
 import './Style.css';
 
 const ProductDetails : React.FC = () => {
   const { id } = useParams();
-
+  const { showSnack } = useSnack();
   const [data, setData] = useState(
     {
       name: '',
@@ -42,8 +43,8 @@ const ProductDetails : React.FC = () => {
         if (result && result.data) {
           setData(result.data.data);
         }
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        showSnack(error, 'error');
       }
     };
     getProduct();

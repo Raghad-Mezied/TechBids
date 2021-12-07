@@ -1,7 +1,7 @@
 const { Auction, User } = require('../../models');
 const boomify = require('../../utils');
 
-const getAuction = async (req, res) => {
+const getAuction = async (req, res, next) => {
   const { id } = req.params;
 
   try {
@@ -17,7 +17,7 @@ const getAuction = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 };
 
