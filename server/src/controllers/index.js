@@ -19,8 +19,8 @@ module.exports = {
   productDetails,
   handleGetFilteredProducts,
   handleAuthUser,
-  handleGetTopGategories,
   getAuction,
   logout,
+  handleGetTopGategories,
   handleGetGategories,
 };
