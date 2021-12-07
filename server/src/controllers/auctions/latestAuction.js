@@ -1,8 +1,8 @@
-const { Auction } = require('../../models');
+const { Product } = require('../../models');
 
 const latestAuction = async (req, res, next) => {
   try {
-    const last3Auction = await Auction.findAll({
+    const last3Auction = await Product.findAll({
       order: [['id', 'DESC']],
       limit: 3,
     });
