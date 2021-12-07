@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../src/app');
-const dbBuild = require('../src/config/dbBuild');
+const { build } = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
-beforeEach(() => dbBuild());
+beforeEach(() => build());
 
 describe('sign up tests', () => {
   test('success sign up', (done) => {
