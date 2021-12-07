@@ -8,10 +8,11 @@ import Header from './Components/Header';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
-import HistoryProduct from './Components/HistoryProduct';
+// import HistoryProduct from './Components/HistoryProduct';
 import SignUp from './pages/SignUp';
 import BtnSocket from './pages/socket.io';
 import Bids from './pages/Bids';
+import Profile from './pages/Profile';
 
 const App : React.FC = () => (
   <div>
@@ -43,7 +44,7 @@ const App : React.FC = () => (
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
