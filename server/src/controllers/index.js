@@ -8,7 +8,7 @@ const {
   logout,
 } = require('./users');
 const { handleGetFilteredProducts, productDetails } = require('./products');
-const { getAuction } = require('./auctions');
+const { getAuction, latestAuction } = require('./auctions');
 
 module.exports = {
   serverError,
@@ -23,4 +23,5 @@ module.exports = {
   logout,
   handleGetTopGategories,
   handleGetGategories,
+  latestAuction,
 };
