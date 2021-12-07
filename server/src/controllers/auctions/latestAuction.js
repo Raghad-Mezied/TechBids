@@ -8,7 +8,6 @@ const latestAuction = async (req, res, next) => {
     });
     res.json({ last3Auction });
   } catch (err) {
-    console.log(err);
     next(err);
   }
 };
