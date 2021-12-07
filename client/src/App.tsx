@@ -8,8 +8,8 @@ import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Bids from './pages/Bids';
 import BtnSocket from './pages/socket.io';
+import Bids from './pages/Bids';
 
 const App : React.FC = () => (
   <div>
