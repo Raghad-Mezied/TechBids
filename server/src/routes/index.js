@@ -23,6 +23,9 @@ router.get('/products', handleGetFilteredProducts);
 router.post('/logout', logout);
 router.get('/product/:id', productDetails);
 router.get('/product/:id/history', getAuction);
+router.post('/products', () => {
+
+});
 router.get('/categories/top', handleGetTopGategories);
 router.get('/categories', handleGetGategories);
 router.get('/product/:id/history', getAuction);
