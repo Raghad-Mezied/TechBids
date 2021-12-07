@@ -2,6 +2,12 @@ const Sequelize = require('sequelize');
 const { sequelize } = require('../config/connection');
 
 const Auction = sequelize.define('auctions', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true,
+  },
   user_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -19,6 +25,13 @@ const Auction = sequelize.define('auctions', {
     allowNull: false,
   },
 
+}, {
+  indexes: [
+    {
+      primaryKey: true,
+      fields: ['id'],
+    },
+  ],
 });
 
 module.exports = { Auction };

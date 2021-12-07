@@ -6,29 +6,38 @@ const { sequelize } = require('../src/config/connection');
 
 beforeEach(() => build());
 
-describe('product details tests', () => {
-  test('get product returns a status code of 200', (done) => {
+describe('all categories tests', () => {
+  test('success', (done) => {
     request(app)
-      .get('/api/product/1/history')
-      .expect(200)
+      .get('/api/categories')
       .expect('Content-Type', /json/)
       .end((err, res) => {
         if (err) return done(err);
-        const expected = {
-          data: [
+        expect(res.body).toStrictEqual({
+          categoriesData: [
             {
               id: 1,
-              user_id: 1,
-              product_id: 1,
-              date: '2021-11-29T14:34:03.800Z',
-              amount: 500,
+              name: 'LapTop',
+            },
+
+            {
+              id: 2,
+              name: 'DeskTop',
+            },
+            {
+              id: 3,
+              name: 'Mobile',
+            },
+
+            {
+              id: 4,
+              name: 'Accessories',
             },
           ],
-        };
-        const actual = res.body;
-        expect(actual).toMatchObject(expected);
+        });
         return done();
       });
   });
 });
+
 afterAll(() => sequelize.close());

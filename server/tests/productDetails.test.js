@@ -1,10 +1,11 @@
 /* eslint-disable no-undef */
 const request = require('supertest');
-const app = require('../src/app');
+const { app } = require('../src/app');
 const { build } = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
 beforeEach(() => build());
+jest.useRealTimers();
 
 describe('product details tests', () => {
   test('get product returns a status code of 200', (done) => {
@@ -19,8 +20,8 @@ describe('product details tests', () => {
             id: 1,
             user_id: 1,
             winner_id: 1,
-            category_id: 1,
-            auc_start_amount: 400,
+            category_id: 4,
+            auc_amount: 400,
             auc_inc_amount: 50,
             end_date: '2021-11-29T14:34:03.800Z',
             name: 'LabTop',
