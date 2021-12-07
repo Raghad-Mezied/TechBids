@@ -13,14 +13,14 @@ const { getAuction } = require('./auctions');
 module.exports = {
   serverError,
   clientError,
-  signUpSchema,
-  signIn,
   handleAddUser,
   productDetails,
+  signIn,
   handleGetFilteredProducts,
+  signUpSchema,
   handleAuthUser,
-  handleGetTopGategories,
   getAuction,
   logout,
+  handleGetTopGategories,
   handleGetGategories,
 };
