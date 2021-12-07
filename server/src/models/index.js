@@ -29,7 +29,7 @@ Product.belongsToMany(User, {
   as: 'users',
   constraints: false,
 });
-
+Auction.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 Category.hasMany(Product, { foreignKey: 'category_id', as: 'products' });
 Product.hasMany(Auction, { foreignKey: 'product_id', as: 'auction' });
 

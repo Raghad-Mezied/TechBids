@@ -35,3 +35,4 @@ export const Timer = ({ futureDate } : any) : any => {
     </Box>
   );
 };
+export default Timer;
