@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSnack } from '../../../context/useSnack';
 import ProductCard from '../ProductCard';
+import './style.css';
 
 interface lastAuction {
   image: string,
