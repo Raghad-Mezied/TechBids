@@ -8,8 +8,9 @@ import {
 import Typography from '@mui/material/Typography';
 import HardwareIcon from '@mui/icons-material/Hardware';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import { useNavigate } from 'react-router-dom';
 import { Timer } from '../Timer';
-// import { Link } from 'react-router-dom';
+import './style.css';
 
 interface ProductCardProps{
     image: string,
@@ -18,70 +19,107 @@ interface ProductCardProps{
     // href: string,
     price: number,
     closed: boolean,
-    endTime: Date
+    endTime: Date,
+    id: number
 }
 
 const ProductCard : any = ({
-  image, description, title, price, closed, endTime,
-} : ProductCardProps) : any => (
-  <Card sx={{ maxWidth: 345, marginBottom: '1.5rem' }}>
-    {closed && (
-    <Box sx={{
-      color: 'white',
-      backgroundColor: 'black',
-      width: '5rem',
-      textAlign: 'center',
-      padding: '0.5rem',
-      borderRadius: '5px',
-      position: 'absolute',
-      marginTop: '0.35rem',
-      marginLeft: '0.35rem',
-      fontSize: '0.7rem',
-    }}
+  image, description, title, price, closed, endTime, id,
+} : ProductCardProps) : any => {
+  const navigate = useNavigate();
+
+  const handleClick = (productId: number): void => {
+    navigate(`/product/${productId}`);
+  };
+
+  return (
+    <Card
+      onClick={() => handleClick(id)}
+      className="product-card"
+      sx={{
+        maxWidth: '31%',
+        marginBottom: '1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        cursor: 'pointer',
+      }}
     >
-      Ended Auction
-    </Box>
-    )}
-    <CardMedia
-      component="img"
-      height="194"
-      image={image}
-      alt="product"
-    />
-    <CardContent>
-      <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} variant="h4" component="div">
-        {title}
-        {closed ? (
-          <RemoveRedEyeOutlinedIcon sx={{
-            color: 'white', backgroundColor: 'black', borderRadius: '50%', padding: '4px',
+      {closed && (
+      <Box sx={{
+        color: 'white',
+        backgroundColor: 'black',
+        textAlign: 'center',
+        padding: '0.5rem',
+        borderRadius: '5px',
+        position: 'absolute',
+        marginTop: '0.8rem',
+        fontSize: '0.7rem',
+        top: 0,
+        left: 0,
+      }}
+      >
+        Ended Auction
+      </Box>
+      )}
+      <CardMedia
+        component="img"
+        height="140"
+        image={image}
+        alt="product"
+      />
+      <CardContent>
+        <Typography
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontWeight: 'bold',
+            height: '65px',
+            alignItems: 'center',
+            overflow: 'hidden',
           }}
-          />
-        ) : (
-          <HardwareIcon
-            sx={{
-              color: 'white', backgroundColor: 'black', borderRadius: '50%', padding: '4px',
-            }}
-          />
-        )}
-      </Typography>
-      <Typography gutterBottom variant="h6" component="div">
-        {closed ? 'Sold for :' : 'Current Bid :'}
-        {' '}
-        { price }
-        {' '}
-        $
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {description}
-      </Typography>
-    </CardContent>
-    {!closed
-    && (
-    <CardActions>
-      <Timer futureDate={endTime} />
-    </CardActions>
-    )}
-  </Card>
-);
+          variant="h6"
+          component="div"
+        >
+          {title}
+          {closed ? (
+
+            <RemoveRedEyeOutlinedIcon
+              onClick={() => handleClick(id)}
+              sx={{
+                color: 'white', backgroundColor: 'black', borderRadius: '50%', padding: '4px', marginLeft: '10px',
+              }}
+            />
+          ) : (
+            <HardwareIcon
+              onClick={() => handleClick(id)}
+              sx={{
+                color: 'white', backgroundColor: 'black', borderRadius: '50%', padding: '4px', marginLeft: '10px',
+              }}
+            />
+          )}
+        </Typography>
+        <Typography
+          gutterBottom
+          variant="subtitle2"
+          component="div"
+          sx={{
+            fontWeight: '600',
+          }}
+        >
+          {closed ? 'Sold for :' : 'Current Bid :'}
+          { price }
+          $
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {`${description.slice(0, 70)} ...`}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Timer futureDate={endTime} isTimeUp={closed} />
+      </CardActions>
+    </Card>
+  );
+};
 
 export default ProductCard;

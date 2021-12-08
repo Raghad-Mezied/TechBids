@@ -8,11 +8,13 @@ import {
 interface Prop {
   setPrice : React.Dispatch<React.SetStateAction<number[]>>;
   price: number[];
+  setPage: any
 }
 
-const BidsDetailsPriceBar: React.FC<Prop> = ({ price, setPrice }) => {
+const BidsDetailsPriceBar: React.FC<Prop> = ({ price, setPrice, setPage }) => {
   const handleChange = (event: Event, newValue: number | number[]): void => {
     setPrice(newValue as number[]);
+    setPage(1);
   };
 
   return (
