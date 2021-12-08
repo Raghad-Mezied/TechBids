@@ -7,7 +7,9 @@ const {
   handleAuthUser,
   logout,
 } = require('./users');
-const { handleGetFilteredProducts, productDetails, getUserProducts } = require('./products');
+const {
+  handleGetFilteredProducts, productDetails, getUserProducts, getUserWinBids,
+} = require('./products');
 const { getAuction, latestAuction } = require('./auctions');
 
 module.exports = {
@@ -25,4 +27,5 @@ module.exports = {
   getUserProducts,
   handleGetGategories,
   latestAuction,
+  getUserWinBids,
 };

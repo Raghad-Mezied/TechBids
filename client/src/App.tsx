@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import BtnSocket from './pages/socket.io';
 import Bids from './pages/Bids';
+import UserWinBids from './pages/UserWinBids';
 import UserProducts from './pages/UserProducts';
 import LastAuction from './Components/Common/LastAuction';
 
@@ -47,6 +48,7 @@ const App : React.FC = () => (
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/user/win" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
