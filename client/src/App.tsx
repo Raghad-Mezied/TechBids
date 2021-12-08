@@ -11,6 +11,8 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import BtnSocket from './pages/socket.io';
 import Bids from './pages/Bids';
+import UserProducts from './pages/UserProducts';
+import LastAuction from './Components/Common/LastAuction';
 
 const App : React.FC = () => (
   <div>
@@ -25,10 +27,12 @@ const App : React.FC = () => (
                   <NavBar />
                   <BtnSocket />
                   <Header />
+                  <LastAuction />
                 </div>
               )}
             />
             <Route path="/bids*" element={<Bids />} />
+            <Route path="/user/products*" element={<UserProducts />} />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />

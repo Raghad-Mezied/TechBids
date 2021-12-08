@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
         duplicating: false,
       }],
       group: ['products.category_id', 'categories.id'],
-      order: [[sequelize.col('productCount'), 'DESC']],
+      order: [[sequelize.col('id')]],
     });
     res.json({ categoriesData });
   } catch (err) {
