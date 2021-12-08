@@ -21,7 +21,6 @@ interface itemsType {
 
 const Header: FC = () => {
   const [categories, setCategories] = useState([]);
-  console.log(categories);
 
   const { showSnack } = useSnack();
   const navigate = useNavigate();

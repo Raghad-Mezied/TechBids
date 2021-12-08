@@ -6,7 +6,6 @@ module.exports = async (req, res, next) => {
       attributes: ['id', 'name'],
     });
     res.json({ categoriesData });
-    console.log('cat', { categoriesData });
   } catch (err) {
     next(err);
   }
