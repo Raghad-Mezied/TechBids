@@ -17,9 +17,8 @@ describe('all categories tests', () => {
           categoriesData: [
             {
               id: 1,
-              name: 'LapTop',
+              name: 'Accessories',
             },
-
             {
               id: 2,
               name: 'DeskTop',
@@ -28,10 +27,9 @@ describe('all categories tests', () => {
               id: 3,
               name: 'Mobile',
             },
-
             {
               id: 4,
-              name: 'Accessories',
+              name: 'LapTop',
             },
           ],
         });
