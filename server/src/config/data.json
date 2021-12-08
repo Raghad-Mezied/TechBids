@@ -93,7 +93,7 @@
       "name" : "Beats Solo3 Wireless On-Ear Headphones",
       "image" : "https://i5.walmartimages.com/asr/30fca38d-6f85-4f48-8ff9-cbf21aa12c12.f75cfc34c1fb5d18507ab7e3cfabb477.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
       "description" : "The Everyday Headphones With booming sound and superior noise cancellation, you can block out all distractions and stay focused on your mission.",
-      "is_open" : true,
+      "is_open" : false,
       "is_used" : true
     },
     {
@@ -107,7 +107,7 @@
       "name" : "GOOGLE PIXEL 6",
       "image" : "https://i.expansys.net/img/b/368026/google-pixel-6-5g-dual-sim.jpg",
       "description" : "Google Pixel 6 5G Dual SIM Network Compatibility | 8GB RAM, 128GB Storage | 50 MP, (wide), PDAF, OIS, 12 MP, (ultrawide) | Li-Ion 4614 mAh, non-removable BATTERY",
-      "is_open" : true,
+      "is_open" : false,
       "is_used" : true
     },
     {
@@ -118,10 +118,10 @@
       "auc_amount" : 520,
       "auc_inc_amount" : 10,
       "end_date":"2020-11-29T14:34:03.800Z",
-      "is_open" : false,
       "name" : "Alienware m15 R6-198 LAPTOP",
       "image" : "https://media.ldlc.com/r1600/ld/products/00/05/86/91/LD0005869128_1.jpg",
       "description" : "Intel Core i7-11800H 16 GB SSD 1 TB 15.6, Full HD 360 Hz NVIDIA GeForce RTX 3080 8 GB Wi-Fi AX/Bluetooth Webcam Windows 10 Home 64 bit",
+      "is_open" : false,
       "is_used" : true
     },
     {

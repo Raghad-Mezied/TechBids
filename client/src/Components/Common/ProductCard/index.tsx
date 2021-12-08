@@ -41,6 +41,7 @@ const ProductCard : any = ({
         marginBottom: '1.5rem',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         position: 'relative',
         cursor: 'pointer',
       }}
@@ -74,9 +75,7 @@ const ProductCard : any = ({
             display: 'flex',
             justifyContent: 'space-between',
             fontWeight: 'bold',
-            height: '65px',
             alignItems: 'center',
-            overflow: 'hidden',
           }}
           variant="h6"
           component="div"
