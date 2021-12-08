@@ -38,10 +38,10 @@ const LastAuction:React.FC = () => {
 
   return (
     <div className="container-last-auctions">
-      <h2>
+      <h2 className="header-last-auctions">
         LATEST ACTIONS
       </h2>
-      <div>
+      <div className="lastAuctions-container">
         {lastAuctions.map((ele:lastAuction) => (
           <ProductCard
             image={ele.image}
