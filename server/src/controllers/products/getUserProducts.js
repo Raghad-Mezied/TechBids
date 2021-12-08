@@ -11,9 +11,7 @@ const getUserProducts = async (req, res, next) => {
         user_id: userId,
       },
     });
-    res.json({
-      data,
-    });
+    res.json({ data });
   } catch (err) {
     next(err);
   }
