@@ -1,8 +1,18 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSnack } from '../../../context/useSnack';
 import ProductCard from '../ProductCard';
+
+interface lastAuction {
+  image: string,
+  name: string,
+  description: string,
+  auc_amount: number,
+  is_open : boolean,
+  end_date: any
+
+}
 
 const LastAuction:React.FC = () => {
   const [lastAuctions, setLastAuctions] = useState([]);
@@ -26,16 +36,23 @@ const LastAuction:React.FC = () => {
   }, []);
 
   return (
-    // <div>
-    //   {lastAuctions.map((ele):any => (
-    //     <ProductCard image={ele.image} description={ele.description}
-    // title={ele.} price={ele.} closed={ele.} endTime={ele.}/>
-    //   ))}
-    // </div>
-    <>
-      hello
-    </>
+    <div className="container-last-auctions">
+      <h2>
+        LATEST ACTIONS
+      </h2>
+      <div>
+        {lastAuctions.map((ele:lastAuction) => (
+          <ProductCard
+            image={ele.image}
+            description={ele.description}
+            title={ele.name}
+            price={ele.auc_amount}
+            closed={ele.is_open}
+            endTime={ele.end_date}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
-
 export default LastAuction;
