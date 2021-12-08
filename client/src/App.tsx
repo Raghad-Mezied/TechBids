@@ -11,6 +11,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import BtnSocket from './pages/socket.io';
 import Bids from './pages/Bids';
+import LastAuction from './Components/Common/LastAuction';
 
 const App : React.FC = () => (
   <div>
@@ -26,6 +27,7 @@ const App : React.FC = () => (
                   <div>No Place like home</div>
                   <BtnSocket />
                   <Header />
+                  <LastAuction />
                 </div>
               )}
             />
