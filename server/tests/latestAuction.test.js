@@ -25,7 +25,7 @@ describe('latest Auction routes', () => {
               name: 'AirPods 3',
               image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MME73_AV2?wid=2000&hei=2000&fmt=jpeg&qlt=80&.v=1632861338000',
               description: 'Personalise them for free, Engrave a mix of emoji, text and numbers to make AirPods unmistakably yours. Only at Apple.',
-              is_open: true,
+              is_open: false,
               is_used: true,
             },
             {
@@ -38,7 +38,7 @@ describe('latest Auction routes', () => {
               name: 'Alienware m15 R6-198 LAPTOP',
               image: 'https://media.ldlc.com/r1600/ld/products/00/05/86/91/LD0005869128_1.jpg',
               description: 'Intel Core i7-11800H 16 GB SSD 1 TB 15.6, Full HD 360 Hz NVIDIA GeForce RTX 3080 8 GB Wi-Fi AX/Bluetooth Webcam Windows 10 Home 64 bit',
-              is_open: true,
+              is_open: false,
               is_used: true,
             },
             {
