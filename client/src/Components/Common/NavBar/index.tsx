@@ -57,7 +57,7 @@ const NavBar : React.FC = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={(): any => { navigate('/myProducts'); }}>My Products</MenuItem>
+      <MenuItem onClick={(): any => { navigate('/user/products'); }}>My Products</MenuItem>
       <MenuItem onClick={(): any => { navigate('/win'); }}>Win Items</MenuItem>
       <MenuItem onClick={(): any => { navigate('/myBids'); }}>My Bids</MenuItem>
       <Divider />
