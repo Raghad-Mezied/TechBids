@@ -119,7 +119,7 @@ const SignUpForm : React.FC<Props> = ({
 
     <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ paddingTop: '15px', color: '#9AA1B9' }}>
       Already have an account ?
-      <Link to="/signup"> Sign in </Link>
+      <Link to="/signin"> Sign in </Link>
     </Typography>
   </Box>
 );

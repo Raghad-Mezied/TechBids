@@ -8,11 +8,13 @@ import Header from './Components/Header';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
-// import HistoryProduct from './Components/HistoryProduct';
+import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
 import BtnSocket from './pages/socket.io';
 import Bids from './pages/Bids';
-import Profile from './pages/Profile';
+import UserWinBids from './pages/UserWinBids';
+import UserProducts from './pages/UserProducts';
+import LastAuction from './Components/Common/LastAuction';
 
 const App : React.FC = () => (
   <div>
@@ -28,9 +30,12 @@ const App : React.FC = () => (
                   <div>No Place like home</div>
                   <BtnSocket />
                   <Header />
+                  <LastAuction />
                 </div>
               )}
             />
+
+            <Route path="/user/products*" element={<UserProducts />} />
             <Route
               path="/bids*"
               element={(
@@ -38,13 +43,14 @@ const App : React.FC = () => (
                   <NavBar />
                   <Bids />
                 </>
-)}
+              )}
             />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/user/win" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
