@@ -8,7 +8,6 @@ import Header from './Components/Header';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
-import HistoryProduct from './Components/HistoryProduct';
 import SignUp from './pages/SignUp';
 import BtnSocket from './pages/socket.io';
 import Bids from './pages/Bids';
@@ -24,26 +23,16 @@ const App : React.FC = () => (
               element={(
                 <div>
                   <NavBar />
-                  <div>No Place like home</div>
                   <BtnSocket />
                   <Header />
                 </div>
               )}
             />
-            <Route
-              path="/bids*"
-              element={(
-                <>
-                  <NavBar />
-                  <Bids />
-                </>
-)}
-            />
+            <Route path="/bids*" element={<Bids />} />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
