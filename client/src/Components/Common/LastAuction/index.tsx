@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSnack } from '../../../context/useSnack';
+import ProductCard from '../ProductCard';
 
 const LastAuction:React.FC = () => {
   const [lastAuctions, setLastAuctions] = useState([]);
@@ -13,22 +14,27 @@ const LastAuction:React.FC = () => {
       try {
         const result:any = await axios.get('/api/latest/auction');
         setLastAuctions(result.data.last3Auction);
+        console.log(result.data.last3Auction);
       } catch (err : any) {
         showSnack(err.response.data.message, 'error');
       }
     };
     fetchLastAuctions();
-    console.log(lastAuctions);
     return () => {
       source.cancel();
     };
   }, []);
 
   return (
-
-    <div>
-      {JSON.stringify(lastAuctions)}
-    </div>
+    // <div>
+    //   {lastAuctions.map((ele):any => (
+    //     <ProductCard image={ele.image} description={ele.description}
+    // title={ele.} price={ele.} closed={ele.} endTime={ele.}/>
+    //   ))}
+    // </div>
+    <>
+      hello
+    </>
   );
 };
 
