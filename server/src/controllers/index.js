@@ -8,19 +8,20 @@ const {
   logout,
 } = require('./users');
 const { handleGetFilteredProducts, productDetails } = require('./products');
-const { getAuction } = require('./auctions');
+const { getAuction, latestAuction } = require('./auctions');
 
 module.exports = {
   serverError,
   clientError,
+  signUpSchema,
+  signIn,
   handleAddUser,
   productDetails,
-  signIn,
   handleGetFilteredProducts,
-  signUpSchema,
   handleAuthUser,
+  handleGetTopGategories,
   getAuction,
   logout,
-  handleGetTopGategories,
   handleGetGategories,
+  latestAuction,
 };
