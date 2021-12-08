@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const request = require('supertest');
-const app = require('../src/app');
+const { app } = require('../src/app');
 const { build } = require('../src/config/dbBuild');
 const { sequelize } = require('../src/config/connection');
 
@@ -20,7 +20,7 @@ describe('product details tests', () => {
               id: 1,
               user_id: 1,
               product_id: 1,
-              date: '2021-11-29T14:34:03.800Z',
+              date: '2022-11-29T14:34:03.800Z',
               amount: 500,
             },
           ],

@@ -3,23 +3,28 @@
     {
       "name" : "test1",
       "email" : "test1@gmail.com",
-      "password" : "1234567"
+      "password" : "1234567888"
     },
     {
       "name" : "test2",
       "email" : "test2@gmail.com",
-      "password" : "1234567"
+      "password" : "1234567888"
     },
     {
       "name" : "test3",
       "email" : "test3@gmail.com",
       "password" : "$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y"
+    },
+    {
+      "name" : "test4",
+      "email" : "test4@gmail.com",
+      "password" : "$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y"
     }
   ],
   "categories" : [
     {
-      "name" : "LapTop",
-      "image": "https://i.ibb.co/nB3gpsz/labtop-Background.jpg"
+      "name" : "Accessories",
+      "image": "https://i.ibb.co/B4D1MjZ/headphone-Background.jpg"
     },
     {
       "name" : "DeskTop",
@@ -30,8 +35,8 @@
       "image": "https://www.linkpicture.com/q/mobile_3.png"
     },
     {
-      "name" : "Accessories",
-      "image": "https://i.ibb.co/B4D1MjZ/headphone-Background.jpg"
+      "name" : "LapTop",
+      "image": "https://i.ibb.co/nB3gpsz/labtop-Background.jpg"
     }
   ],
   "products" : [
@@ -42,7 +47,7 @@
       "category_id" : 4,
       "auc_amount" : 400,
       "auc_inc_amount" : 50,
-      "end_date":"2021-11-29T14:34:03.800Z",
+      "end_date":"2022-11-29T14:34:03.800Z",
       "name" : "LabTop",
       "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsFAAF5nU8p12eycPHmPbcRKtb0_mZIOUwKA&usqp=CAU",
       "description" : "Microsoft Surface Laptop 4 13.5” Touch-Screen – AMD Ryzen 5 Surface Edition - 8GB Memory - 256GB Solid State Drive (Latest Model) - Platinum",
@@ -53,10 +58,10 @@
       "id": 2,
       "user_id" : 2,
       "winner_id" : 1,
-      "category_id" : 3,
+      "category_id" : 2,
       "auc_amount" : 100,
       "auc_inc_amount" : 20,
-      "end_date":"2021-11-29T14:34:03.800Z",
+      "end_date":"2022-11-29T14:34:03.800Z",
       "name" : "Desktop Gamer Las Vegas",
       "image" : "https://www.cyberpowerpc.com/images/cs/pc008/cs-450-160_220.png?v2",
       "description" : "The Ragdoll is a cat breed with blue eyes and a distinct colorpoint coat. It is a large and muscular semi-longhair cat with a soft and silky coat. Like all long haired cats, Ragdolls need grooming to ensure their fur does not mat.",
@@ -67,11 +72,11 @@
       "id": 3,
       "user_id" : 3,
       "winner_id" : 2,
-      "category_id" : 4,
+      "category_id" : 3,
       "auc_amount" : 520,
       "auc_inc_amount" : 10,
-      "end_date":"2021-11-29T14:34:03.800Z",
-      "name" : "Space Grey 64GB Phone",
+      "end_date":"2022-11-29T14:34:03.800Z",
+      "name" : "Samsung M12 64GB Phone",
       "image" : "https://www.mytrendyphone.eu/images/Samsung-Galaxy-M12-Duos-128GB-Black-8806092543003-08112021-01-p.jpg",
       "description" : "Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh RateSamsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
       "is_open" : true,
@@ -81,7 +86,7 @@
       "id": 4,
       "user_id" : 3,
       "winner_id" : 2,
-      "category_id" : 4,
+      "category_id" : 1,
       "auc_amount" : 520,
       "auc_inc_amount" : 10,
       "end_date":"2021-11-29T14:34:03.800Z",
@@ -95,7 +100,7 @@
       "id": 5,
       "user_id" : 3,
       "winner_id" : 2,
-      "category_id" : 2,
+      "category_id" : 3,
       "auc_amount" : 520,
       "auc_inc_amount" : 10,
       "end_date":"2021-11-29T14:34:03.800Z",
@@ -123,7 +128,7 @@
       "id": 7,
       "user_id" : 3,
       "winner_id" : 2,
-      "category_id" : 2,
+      "category_id" : 1,
       "auc_amount" : 520,
       "auc_inc_amount" : 10,
       "end_date":"2021-11-29T14:34:03.800Z",
@@ -139,19 +144,19 @@
     {
       "user_id" : 1,
       "product_id" : 1,
-      "date": "2021-11-29T14:34:03.800Z",
+      "date": "2022-11-29T14:34:03.800Z",
       "amount" : 500
     },
     {
       "user_id" : 2,
       "product_id" : 3,
-      "date": "2021-11-29T14:34:03.800Z",
+      "date": "2022-11-29T14:34:03.800Z",
       "amount" : 200
     },
     {
       "user_id" : 3,
       "product_id" : 3,
-      "date": "2021-11-29T14:34:03.800Z",
+      "date": "2022-11-29T14:34:03.800Z",
       "amount" : 700
     },
     {

@@ -6,10 +6,10 @@ const { sequelize } = require('../src/config/connection');
 
 beforeEach(() => build());
 
-describe('top categories tests', () => {
+describe('all categories tests', () => {
   test('success', (done) => {
     request(app)
-      .get('/api/categories/top')
+      .get('/api/categories')
       .expect('Content-Type', /json/)
       .end((err, res) => {
         if (err) return done(err);
@@ -18,26 +18,18 @@ describe('top categories tests', () => {
             {
               id: 1,
               name: 'Accessories',
-              image: 'https://i.ibb.co/B4D1MjZ/headphone-Background.jpg',
-              productCount: '2',
             },
             {
               id: 2,
               name: 'DeskTop',
-              image: 'https://www.linkpicture.com/q/desktop.png',
-              productCount: '1',
             },
             {
               id: 3,
               name: 'Mobile',
-              image: 'https://www.linkpicture.com/q/mobile_3.png',
-              productCount: '2',
             },
             {
               id: 4,
               name: 'LapTop',
-              image: 'https://i.ibb.co/nB3gpsz/labtop-Background.jpg',
-              productCount: '2',
             },
           ],
         });

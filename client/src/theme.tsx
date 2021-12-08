@@ -15,9 +15,6 @@ const theme = createTheme({
     fontWeightMedium: 600,
     fontWeightBold: 700,
   },
-  // shape: {
-  //   borderRadius: '50px',
-  // },
 });
 
 export default theme;
