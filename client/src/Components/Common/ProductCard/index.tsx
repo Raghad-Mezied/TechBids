@@ -16,7 +16,6 @@ interface ProductCardProps{
     image: string,
     description : string,
     title: string,
-    // href: string,
     price: number,
     closed: boolean,
     endTime: Date,
