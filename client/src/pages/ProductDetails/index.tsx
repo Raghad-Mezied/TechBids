@@ -103,7 +103,7 @@ const ProductDetails : React.FC = () => {
                   <Typography className="date">
                     {`Auction ends: ${data.end_date}`}
                   </Typography>
-                  { data?.is_opens && (
+                  { data?.is_open && (
                   <CardActions>
                     <BtnSocket priceBids={priceBids} setPriceBids={setPriceBids}>
                       Bid for +
