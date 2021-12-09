@@ -6,14 +6,14 @@ const getUserEnteredBids = async (req, res, next) => {
 
   try {
     if (userId <= 0) { throw boomify(400, 'Bad Request', 'Bad Request'); }
-    const data = await Auction.findAll({
+    const data = await Product.findAll({
       include: [{
-        model: Product,
-        as: 'products',
+        model: Auction,
+        as: 'auction',
+        where: {
+          user_id: userId,
+        },
       }],
-      where: {
-        user_id: userId,
-      },
     });
     res.json({ data });
   } catch (err) {
