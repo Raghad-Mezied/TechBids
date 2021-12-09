@@ -90,8 +90,9 @@ const Bids : React.FC = () => {
         </div>
         <div className="side-container">
           <div className="card-container">
-            {isLoading ? Array.from(new Array(3)).map(() => <Skeleton variant="rectangular" width="30%" height={300} />)
-              : (products.length ? products.map((item:itemProp) => (
+            {isLoading && Array.from(new Array(3)).map(() => <Skeleton variant="rectangular" width="30%" height={300} />)}
+            {
+              !isLoading && (products.length ? products.map((item:itemProp) => (
                 <ProductCard
                   image={item.image}
                   description={item.description}
@@ -104,7 +105,8 @@ const Bids : React.FC = () => {
               ))
                 : (
                   <img alt="no data" src="https://miro.medium.com/max/1400/1*VYtKX_1QzcszNycjldry5A.png" />
-                )) }
+                ))
+            }
           </div>
           {count > 6
             ? <Pagination count={Math.ceil(count / 6)} page={page} onChange={handleChange} />
