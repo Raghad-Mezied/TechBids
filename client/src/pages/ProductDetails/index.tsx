@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import GavelIcon from '@mui/icons-material/Gavel';
 import HistoryProduct from '../../Components/HistoryProduct';
-import Timer from '../../Components/Common/Timer';
+// import Timer from '../../Components/Common/Timer';
 import NavBar from '../../Components/Common/NavBar';
 import { useSnack } from '../../context/useSnack';
 import './Style.css';
@@ -104,7 +104,7 @@ const ProductDetails : React.FC = () => {
                 Time Left :
 
               </Typography>
-              {data.end_date && <Timer futureDate={new Date(data.end_date)} />}
+              {/* {data.end_date && <Timer futureDate={new Date(data.end_date)} />} */}
 
               <Typography className="date">
                 Auction ends:

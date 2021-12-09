@@ -12,7 +12,7 @@ interface lastAuction {
   auc_amount: number,
   is_open : boolean,
   end_date: any
-
+  id: number
 }
 
 const LastAuction:React.FC = () => {
@@ -25,7 +25,6 @@ const LastAuction:React.FC = () => {
       try {
         const result:any = await axios.get('/api/latest/auction');
         setLastAuctions(result.data.last3Auction);
-        console.log(result.data.last3Auction);
       } catch (err : any) {
         showSnack(err.response.data.message, 'error');
       }
@@ -50,6 +49,7 @@ const LastAuction:React.FC = () => {
             price={ele.auc_amount}
             closed={ele.is_open}
             endTime={ele.end_date}
+            id={ele.id}
           />
         ))}
       </div>
