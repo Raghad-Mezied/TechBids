@@ -56,7 +56,7 @@ const ProductDetails : React.FC = () => {
     return () => {
       source.cancel();
     };
-  });
+  }, []);
 
   return (
     <div>
