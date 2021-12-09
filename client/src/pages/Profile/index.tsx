@@ -35,7 +35,7 @@ const Profile : React.FC = () => {
   });
 
   const [categories, setCategories] = useState([]);
-  const { showSnak } = useSnack();
+  const { showSnack } = useSnack();
 
   const categoriesList = categories.map((category: any) => (
     <MenuItem value={category.id} key={category.id}>{category.name}</MenuItem>
@@ -47,11 +47,11 @@ const Profile : React.FC = () => {
         ...product,
       });
 
-      showSnak('product added succesfully !', 'success');
+      showSnack('product added succesfully !', 'success');
       setOpen(false);
       setProduct({});
     } catch (err) {
-      showSnak('Some thing went wrong', 'error');
+      showSnack('Some thing went wrong', 'error');
     }
   };
 
@@ -60,7 +60,7 @@ const Profile : React.FC = () => {
       const res = await axios.get('/api/categories');
       setCategories(res.data.categoriesData);
     } catch (err) {
-      showSnak('Some Thing Went Wrong', 'error');
+      showSnack('Some Thing Went Wrong', 'error');
     }
   };
 
