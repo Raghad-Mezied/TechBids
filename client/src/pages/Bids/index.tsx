@@ -89,7 +89,7 @@ const Bids : React.FC = () => {
           <BidsStatusCheckBox setPage={setPage} status={status} setStatus={setStatus} />
         </div>
         <div className="side-container">
-          <div className="card-container">
+          <div className="card-container2">
             {isLoading && Array.from(new Array(3)).map(() => <Skeleton variant="rectangular" width="30%" height={300} />)}
             {!isLoading && (products.length ? products.map((item:itemProp) => (
               <ProductCard
