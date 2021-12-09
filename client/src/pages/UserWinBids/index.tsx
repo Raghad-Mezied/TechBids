@@ -60,7 +60,10 @@ const UserWinBids : React.FC = () => {
       <NavBar />
       <div style={{ width: '1000px', margin: '9rem auto' }}>
         <div style={{
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '1rem',
         }}
         >
           <Typography variant="h4">Win Products</Typography>
