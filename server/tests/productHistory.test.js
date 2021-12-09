@@ -21,7 +21,7 @@ describe('product details tests', () => {
               user_id: 1,
               product_id: 1,
               date: '2022-11-29T14:34:03.800Z',
-              amount: 500,
+              amount: 400,
             },
           ],
         };
