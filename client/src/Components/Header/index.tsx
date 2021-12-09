@@ -100,7 +100,7 @@ const Header: FC = () => {
                 <div
                   className="img-content"
                 >
-                  <Typography variant="h6" color="white">
+                  <Typography variant="h5" color="white">
                     {item.name}
                   </Typography>
                   <Typography color="white">
@@ -112,7 +112,7 @@ const Header: FC = () => {
             ))}
           </ImageList>
         )
-        : <Skeleton variant="rectangular" className="img-container" width="43%" height="50vh" />}
+        : <Skeleton variant="rectangular" className="img-container" width="60%" height="50vh" />}
     </div>
   );
 };

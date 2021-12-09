@@ -87,7 +87,7 @@ const ProductDetails : React.FC = () => {
                       className="open-btn"
                       size="small"
                     >
-                      {data.is_open ? 'open' : 'close'}
+                      {data.is_open ? 'open' : 'closed'}
                     </Button>
                   </div>
                   <Typography variant="subtitle2">
@@ -100,11 +100,11 @@ const ProductDetails : React.FC = () => {
                   <Typography sx={{ width: '85%', margin: '5px 0' }}>
                     {data.end_date && <Timer futureDate={new Date(data.end_date)} />}
                   </Typography>
-                  <Typography className="date">
+                  <Typography variant="subtitle2" className="date">
                     {`Auction ends: ${data.end_date}`}
                   </Typography>
                   { data?.is_open && (
-                  <CardActions>
+                  <CardActions className="bid-action-btn">
                     <BtnSocket priceBids={priceBids} setPriceBids={setPriceBids}>
                       Bid for +
                       {data.auc_inc_amount}
