@@ -5,15 +5,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ProvideAuth } from './context/useAuth';
 import ProductDetails from './pages/ProductDetails';
-import Header from './Components/Header';
 import theme from './theme';
 import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Bids from './pages/Bids';
+import Home from './pages/Home';
 import UserWinBids from './pages/UserWinBids';
 import UserProducts from './pages/UserProducts';
-import LastAuction from './Components/Common/LastAuction';
 
 const App : React.FC = () => (
   <div>
@@ -23,14 +22,7 @@ const App : React.FC = () => (
           <Routes>
             <Route
               path="/*"
-              element={(
-                <div>
-                  <NavBar />
-                  <div>No Place like home</div>
-                  <Header />
-                  <LastAuction />
-                </div>
-              )}
+              element={<Home />}
             />
 
             <Route path="/user/products*" element={<UserProducts />} />
@@ -47,7 +39,8 @@ const App : React.FC = () => (
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/user/win" element={<UserWinBids />} />
+
+            <Route path="/user/win*" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
