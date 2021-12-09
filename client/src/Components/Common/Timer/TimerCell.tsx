@@ -13,7 +13,7 @@ export const TimerCell = ({ label, value } : Props) : any => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <span style={{ marginBottom: '0.5rem' }}>{ formattedValue }</span>
-      <span>{ label }</span>
+      <span style={{ fontSize: '.75rem' }}>{ label }</span>
     </Box>
   );
 };

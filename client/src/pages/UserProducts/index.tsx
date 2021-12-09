@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import {
   Typography, Button,
@@ -8,13 +9,36 @@ import { useSnack } from '../../context/useSnack';
 import NavBar from '../../Components/Common/NavBar';
 import Footer from '../../Components/Common/Footer';
 import AddProductModal from '../../Components/AddProductModal';
+import ProductCard from '../../Components/Common/ProductCard';
+
+interface itemProp {
+  image: string,
+  description: string,
+  name: string,
+  auc_amount: number,
+  is_open: Boolean,
+  end_date: Date,
+  id: number
+}
 
 const UserProducts : React.FC = () => {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
   const { showSnack } = useSnack();
   console.log(products);
-  // const productList = products && products.map((product) => );
+
+  const productList = products && products.map((product: itemProp) => (
+    <ProductCard
+      key={product.id}
+      image={product.image}
+      description={product.description}
+      title={product.name}
+      price={product.auc_amount}
+      closed={!product.is_open}
+      endTime={new Date(product.end_date)}
+      id={product.id}
+    />
+  ));
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -40,7 +64,7 @@ const UserProducts : React.FC = () => {
       <NavBar />
       <div style={{ width: '1000px', margin: '9rem auto' }}>
         <div style={{
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}
         >
           <Typography variant="h4">My Products</Typography>
@@ -52,6 +76,12 @@ const UserProducts : React.FC = () => {
           >
             Add Product
           </Button>
+        </div>
+        <div style={{
+          display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap',
+        }}
+        >
+          {productList}
         </div>
       </div>
       <Footer />
