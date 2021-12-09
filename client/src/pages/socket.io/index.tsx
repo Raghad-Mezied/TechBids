@@ -7,7 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/useAuth';
 import { useSnack } from '../../context/useSnack';
 
-const socket = io('https://tech-bids.herokuapp.com/');
+const socket = io('https://tech-bids.herokuapp.com', { withCredentials: true });
 
 interface Props {
   children: any,
