@@ -25,6 +25,13 @@ const Auction = sequelize.define('auctions', {
     allowNull: false,
   },
 
+}, {
+  indexes: [
+    {
+      primaryKey: true,
+      fields: ['id'],
+    },
+  ],
 });
 
 module.exports = { Auction };

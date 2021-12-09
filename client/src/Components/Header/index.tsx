@@ -30,20 +30,23 @@ const Header: FC = () => {
   };
 
   useEffect(() => {
-    const myAbortController = new AbortController();
-    async function fetchingTopCategories(): Promise<void> {
+    const source = axios.CancelToken.source();
+    const fetchingTopCategories = async ():Promise<void> => {
       try {
-        const data = await axios.get('/api/categories/top', { signal: myAbortController.signal });
+        const data = await axios.get('/api/categories/top');
         setCategories(data.data.categoriesData);
       } catch (err: any) {
-        showSnack(err.response.data.message, 'error');
+        if (err.name) {
+          showSnack(err.response.data.message, 'error');
+        }
       }
-    }
-    fetchingTopCategories();
-    return () => {
-      myAbortController.abort();
     };
-  });
+    fetchingTopCategories();
+
+    return ():void => {
+      source.cancel();
+    };
+  }, []);
 
   return (
     <div>
