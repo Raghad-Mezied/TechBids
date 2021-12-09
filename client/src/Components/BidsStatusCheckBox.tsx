@@ -10,11 +10,13 @@ import {
 interface Prop {
   setStatus : React.Dispatch<React.SetStateAction<string>>;
   status: string;
+  setPage: any
 }
 
-const BidsStatusCheckBox: FC<Prop> = ({ status, setStatus }) => {
+const BidsStatusCheckBox: FC<Prop> = ({ status, setStatus, setPage }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setStatus((event.target as HTMLInputElement).value);
+    setPage(1);
   };
 
   return (

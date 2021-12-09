@@ -10,13 +10,14 @@ import axios from 'axios';
 import { useSnack } from '../context/useSnack';
 
 interface Prop {
-  setCategoryId : any
+  setCategoryId : any,
+  selectedCategory: any,
+  setPage: any
 }
 
-const BidsCategoriesSelect: React.FC<Prop> = ({ setCategoryId }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+const BidsCategoriesSelect: React.FC<Prop> = ({ setCategoryId, selectedCategory, setPage }) => {
+  const [selectedIndex, setSelectedIndex] = useState(Number(selectedCategory) || 0);
   const [categories, setCategories] = useState([]);
-
   const { showSnack } = useSnack();
 
   const handleListItemClick = (
@@ -52,6 +53,7 @@ const BidsCategoriesSelect: React.FC<Prop> = ({ setCategoryId }) => {
           onClick={(event) => {
             handleListItemClick(event, 0);
             setCategoryId(undefined);
+            setPage(1);
           }}
         >
           <ListItemText primary="All" />
@@ -63,6 +65,7 @@ const BidsCategoriesSelect: React.FC<Prop> = ({ setCategoryId }) => {
               onClick={(event) => {
                 handleListItemClick(event, i + 1);
                 setCategoryId(item.id);
+                setPage(1);
               }}
             >
               <ListItemText

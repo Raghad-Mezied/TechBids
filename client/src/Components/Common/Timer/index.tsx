@@ -9,7 +9,14 @@ export const Timer = ({ futureDate } : any) : any => {
     days, hours, minutes, seconds, isTimeUp,
   } = useTimer(futureDate);
   const tickerContents = isTimeUp ? (
-    <div>Time is up!!!</div>
+    <>
+
+      <TimerCell value={0} label="Days" />
+      <TimerCell value={0} label="Hours" />
+      <TimerCell value={0} label="Minutes" />
+      <TimerCell value={0} label="Seconds" />
+    </>
+
   ) : (
     <>
       <TimerCell value={days} label="Days" />
@@ -24,8 +31,8 @@ export const Timer = ({ futureDate } : any) : any => {
       width: '90%',
       margin: '0 auto',
       padding: '0.5rem',
-      color: 'white',
-      backgroundColor: 'black',
+      color: isTimeUp ? '#7a7979' : 'white',
+      backgroundColor: isTimeUp ? '#e7e7e7' : 'black',
       display: 'flex',
       justifyContent: 'space-between',
       borderRadius: '5px',

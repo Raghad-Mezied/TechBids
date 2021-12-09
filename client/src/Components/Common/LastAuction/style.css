@@ -12,4 +12,7 @@
 }
 .lastAuctions-container{
   display: flex;
+  width: 70%;
+  margin: 3vh auto;
+  justify-content: space-between;
 }
