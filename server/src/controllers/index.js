@@ -10,7 +10,7 @@ const {
 const {
   handleGetFilteredProducts, productDetails, getUserProducts, getUserWinBids, addProduct,
 } = require('./products');
-const { getAuction, latestAuction } = require('./auctions');
+const { getAuction, latestAuction, getUserEnteredBids } = require('./auctions');
 
 module.exports = {
   serverError,
@@ -29,4 +29,5 @@ module.exports = {
   handleGetGategories,
   latestAuction,
   getUserWinBids,
+  getUserEnteredBids,
 };
