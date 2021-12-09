@@ -5,7 +5,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import { ProvideAuth } from './context/useAuth';
 import ProductDetails from './pages/ProductDetails';
 import theme from './theme';
-import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Bids from './pages/Bids';
@@ -19,26 +18,13 @@ const App : React.FC = () => (
       <ProvideAuth>
         <ThemeProvider theme={theme}>
           <Routes>
-            <Route
-              path="/*"
-              element={<Home />}
-            />
-
+            <Route path="/*" element={<Home />} />
+            <Route path="/bids*" element={<Bids />} />
             <Route path="/user/products*" element={<UserProducts />} />
-            <Route
-              path="/bids*"
-              element={(
-                <>
-                  <NavBar />
-                  <Bids />
-                </>
-              )}
-            />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
-
             <Route path="/user/win*" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
