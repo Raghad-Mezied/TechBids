@@ -50,7 +50,7 @@ const App : React.FC = () => (
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/user/win" element={<UserWinBids />} />
+            <Route path="/user/win*" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
