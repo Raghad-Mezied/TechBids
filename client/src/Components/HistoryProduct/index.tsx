@@ -42,7 +42,7 @@ const HistoryProduct : React.FC = () => {
   });
   return (
     <div className="conatiner-table">
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ height: '65vh' }}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>

@@ -35,7 +35,6 @@ const ProductDetails : React.FC = () => {
       },
     },
   );
-  console.log(data);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -45,10 +44,12 @@ const ProductDetails : React.FC = () => {
         const result = await axios.get(`/api/product/${id}`);
 
         if (result && result.data) {
+          console.log(result.data);
           setData(result.data.data);
         }
       } catch (error) {
         showSnack(error, 'error');
+        console.log(error);
       }
     };
     getProduct();
