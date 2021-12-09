@@ -46,7 +46,6 @@ const ProductDetails : React.FC = () => {
         const result = await axios.get(`/api/product/${id}`);
 
         if (result && result.data) {
-          console.log(result.data);
           setData(result.data.data);
         }
       } catch (error) {
@@ -64,7 +63,7 @@ const ProductDetails : React.FC = () => {
     <>
       <NavBar />
       <Typography sx={{
-        fontSize: '30px', fontWeight: 'bold', paddingLeft: '13%', margin: '6vh 0 2vh',
+        fontSize: '30px', fontWeight: 'bold', paddingLeft: '13%', margin: '10vh 0 4vh',
       }}
       >
         {data.name}
@@ -98,32 +97,34 @@ const ProductDetails : React.FC = () => {
                   <Typography variant="subtitle1" className="date">
                     Time Left :
                   </Typography>
-                  <Typography sx={{ width: '85%', margin: '5px auto' }}>
+                  <Typography sx={{ width: '85%', margin: '5px 0' }}>
                     {data.end_date && <Timer futureDate={new Date(data.end_date)} />}
                   </Typography>
                   <Typography className="date">
                     {`Auction ends: ${data.end_date}`}
                   </Typography>
+                  { data?.is_opens && (
                   <CardActions>
-                    Bid Now for:
                     <BtnSocket priceBids={priceBids} setPriceBids={setPriceBids}>
-                      +
+                      Bid for +
                       {data.auc_inc_amount}
+                      $
                       <HardwareIcon sx={{ marginLeft: '10px' }} />
                     </BtnSocket>
                   </CardActions>
-                  <Typography variant="subtitle2" className="description-label">
-                    Description
-                  </Typography>
-                  <Typography variant="body2" className="description">
-                    {data.description}
-                  </Typography>
+                  )}
                   <Typography variant="subtitle2" className="item-condition">
                     item Condition :
                     <span>
                       {data.is_used ? 'Used' : 'Not Used'}
-
                     </span>
+                  </Typography>
+
+                  <Typography variant="subtitle2" className="content-title">
+                    Description
+                  </Typography>
+                  <Typography variant="body2" className="content-text">
+                    {data.description}
                   </Typography>
                 </CardContent>
               </Card>
@@ -131,7 +132,7 @@ const ProductDetails : React.FC = () => {
             : 'No Data'}
         </div>
       </div>
-      {/* <HistoryProduct /> */}
+      <HistoryProduct />
       <Footer />
     </>
   );

@@ -11,7 +11,7 @@ interface lastAuction {
   description: string,
   auc_amount: number,
   is_open : boolean,
-  end_date: any
+  end_date: any,
   id: number
 }
 
@@ -47,8 +47,8 @@ const LastAuction:React.FC = () => {
             description={ele.description}
             title={ele.name}
             price={ele.auc_amount}
-            closed={ele.is_open}
-            endTime={ele.end_date}
+            closed={!ele.is_open}
+            endTime={new Date(ele.end_date)}
             id={ele.id}
           />
         ))}

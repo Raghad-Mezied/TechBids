@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import { format } from 'date-fns';
 import axios from 'axios';
 import Button from '@mui/material/Button';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/useAuth';
 import { useSnack } from '../../context/useSnack';
 
@@ -17,6 +17,7 @@ interface Props {
 
 const BtnSocket:React.FC<Props> = ({ children, priceBids, setPriceBids }) => {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const { showSnack } = useSnack();
 
@@ -59,6 +60,10 @@ const BtnSocket:React.FC<Props> = ({ children, priceBids, setPriceBids }) => {
         size="small"
         className="icon-btn"
         onClick={() => {
+          if (!user) {
+            navigate('/signin');
+            return;
+          }
           sendPrice();
           getProduct();
         }}

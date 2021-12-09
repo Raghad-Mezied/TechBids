@@ -56,7 +56,7 @@
     margin-left: 50% ; 
 }
 .item-condition{
-    margin-top: 7px !important;
+    margin: 15px 0 5px !important;
 }
 
 .item-condition span{
@@ -64,7 +64,10 @@
     font-weight: 500 !important;
     margin-left: 10px;
 }
-.css-1t6e9jv-MuiCardActions-root{
+.content-text{
+    text-align: justify;
+}
+.card-product .css-1t6e9jv-MuiCardActions-root{
     font-size: 1rem;
     padding: 0 !important;
 }

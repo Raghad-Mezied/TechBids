@@ -33,6 +33,35 @@ module.exports = async (req, res, next) => {
       page,
     });
 
+    const count = await Product.count({
+      where: {
+        [Op.and]: [
+          search !== undefined && {
+            [Op.or]: [
+              {
+                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${search.toLowerCase()}%`),
+              },
+              {
+                description: sequelize.where(sequelize.fn('LOWER', sequelize.col('description')), 'LIKE', `%${search.toLowerCase()}%`),
+              },
+            ],
+          },
+          isOpen !== undefined && { is_open: isOpen },
+          categoryId !== undefined && { category_id: categoryId },
+          maxPrice !== undefined && {
+            auc_amount: {
+              [Op.lte]: maxPrice,
+            },
+          },
+          {
+            auc_amount: {
+              [Op.gte]: minPrice,
+            },
+          },
+        ],
+      },
+    });
+
     const productData = await Product.findAll({
       attributes: ['id', 'name', 'description', 'is_open', 'image', 'end_date', 'auc_amount'],
       offset: (page - 1) * 6,
@@ -65,7 +94,7 @@ module.exports = async (req, res, next) => {
       },
     });
 
-    res.json({ productData });
+    res.json({ productData, count });
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(boomify(400, err.details[0].message, 'Bad Request'));
