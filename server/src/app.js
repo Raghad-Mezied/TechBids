@@ -29,9 +29,11 @@ io.on('connection', (socket) => {
 
   socket.on('sendPrice', async (data) => {
     try {
+      console.log(data);
       const product = await Product.findByPk(data.room);
       product.auc_amount += product.auc_inc_amount;
       await product.save();
+      console.log('sssssssssssssssssssssssssssssssssssssssssssssss', product.auc_amount);
       await Auction.create({
         user_id: data.user_id,
         product_id: data.room,

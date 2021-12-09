@@ -11,7 +11,6 @@ import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Bids from './pages/Bids';
-import BtnSocket from './pages/socket.io';
 import UserWinBids from './pages/UserWinBids';
 import UserProducts from './pages/UserProducts';
 import LastAuction from './Components/Common/LastAuction';
@@ -28,7 +27,6 @@ const App : React.FC = () => (
                 <div>
                   <NavBar />
                   <div>No Place like home</div>
-                  <BtnSocket />
                   <Header />
                   <LastAuction />
                 </div>
