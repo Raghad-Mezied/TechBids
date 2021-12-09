@@ -34,8 +34,6 @@ const App : React.FC = () => (
                 </div>
               )}
             />
-
-            <Route path="/user/products*" element={<UserProducts />} />
             <Route
               path="/bids*"
               element={(
@@ -45,12 +43,16 @@ const App : React.FC = () => (
                 </>
               )}
             />
-            <Route path="/signin*" element={<SignIn />} />
-            <Route path="/signup*" element={<SignUp />} />
-            <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
+
+            <Route path="/user/products*" element={<UserProducts />} />
             <Route path="/user/win*" element={<UserWinBids />} />
             <Route path="/user/bids*" element={<UserEnteredBids />} />
+
+            <Route path="/signin*" element={<SignIn />} />
+            <Route path="/signup*" element={<SignUp />} />
+
+            <Route path="*" element={<div>NOT FOUND</div>} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
