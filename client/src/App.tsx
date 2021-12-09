@@ -1,14 +1,16 @@
-/* eslint-disable react/button-has-type */
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ProvideAuth } from './context/useAuth';
-import Header from './Components/Header';
+import ProductDetails from './pages/ProductDetails';
 import theme from './theme';
-import NavBar from './Components/Common/NavBar';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import Bids from './pages/Bids';
-import './App.css';
+import Home from './pages/Home';
+import UserWinBids from './pages/UserWinBids';
+import UserProducts from './pages/UserProducts';
 
 const App : React.FC = () => (
   <div>
@@ -16,19 +18,14 @@ const App : React.FC = () => (
       <ProvideAuth>
         <ThemeProvider theme={theme}>
           <Routes>
-            <Route
-              path="/*"
-              element={(
-                <div>
-                  <NavBar />
-                  <Header />
-                </div>
-              )}
-            />
+            <Route path="/*" element={<Home />} />
             <Route path="/bids*" element={<Bids />} />
+            <Route path="/user/products*" element={<UserProducts />} />
             <Route path="/signin*" element={<SignIn />} />
-            <Route path="/signup*" element={<div>signup</div>} />
+            <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/user/win*" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>

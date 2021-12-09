@@ -33,7 +33,7 @@ const useProvideAuth = () : AuthContext => {
     name : string,
     email : string,
     password : string,
-    confirmedPassword : string,
+    confirmPassword : string,
     callback : any = null,
   ) : Promise<any> => {
     try {
@@ -41,7 +41,7 @@ const useProvideAuth = () : AuthContext => {
         name,
         email,
         password,
-        confirmedPassword,
+        confirmPassword,
       });
 
       setUser(res.data.user);
