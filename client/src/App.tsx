@@ -10,6 +10,8 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Bids from './pages/Bids';
 import Home from './pages/Home';
+import UserWinBids from './pages/UserWinBids';
+import UserProducts from './pages/UserProducts';
 
 const App : React.FC = () => (
   <div>
@@ -21,6 +23,8 @@ const App : React.FC = () => (
               path="/*"
               element={<Home />}
             />
+
+            <Route path="/user/products*" element={<UserProducts />} />
             <Route
               path="/bids*"
               element={(
@@ -28,12 +32,13 @@ const App : React.FC = () => (
                   <NavBar />
                   <Bids />
                 </>
-)}
+              )}
             />
             <Route path="/signin*" element={<SignIn />} />
             <Route path="/signup*" element={<SignUp />} />
             <Route path="*" element={<div>NOT FOUND</div>} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/user/win*" element={<UserWinBids />} />
           </Routes>
         </ThemeProvider>
       </ProvideAuth>
