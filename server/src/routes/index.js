@@ -15,6 +15,7 @@ const {
   handleGetGategories,
   latestAuction,
   getUserWinBids,
+  getUserEnteredBids,
 } = require('../controllers');
 
 const { isAuth } = require('../controllers/middlewares');
@@ -22,6 +23,7 @@ const { isAuth } = require('../controllers/middlewares');
 router.get('/auth/user', isAuth, handleAuthUser);
 router.get('/user/products', isAuth, getUserProducts);
 router.get('/user/win', isAuth, getUserWinBids);
+router.get('/user/bids', isAuth, getUserEnteredBids);
 router.post('/signIn', signIn);
 router.post('/signup', handleAddUser);
 router.get('/products', handleGetFilteredProducts);
