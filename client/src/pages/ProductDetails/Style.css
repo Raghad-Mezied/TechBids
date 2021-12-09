@@ -48,8 +48,7 @@
     font-size: .8rem !important;
     margin: 20p 0 5px !important;
 }
-.open-btn
-{
+.open-btn {
     font-size: 14;
     border: 1px solid #000000 !important;
     border-radius: '25px';
@@ -70,4 +69,12 @@
 .card-product .css-1t6e9jv-MuiCardActions-root{
     font-size: 1rem;
     padding: 0 !important;
+}
+.css-l1pfs6 {
+    margin: 0 0 10px !important;
+    width: 80% !important;
+}
+.bid-action-btn .MuiButton-root{
+    margin: 20px 0 10px !important;
+    padding: 6px 10px !important;
 }

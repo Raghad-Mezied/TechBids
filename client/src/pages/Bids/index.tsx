@@ -89,22 +89,24 @@ const Bids : React.FC = () => {
           <BidsStatusCheckBox setPage={setPage} status={status} setStatus={setStatus} />
         </div>
         <div className="side-container">
-          <div className="card-container2">
+          <div className="product-card-container">
             {isLoading && Array.from(new Array(3)).map(() => <Skeleton variant="rectangular" width="30%" height={300} />)}
-            {!isLoading && (products.length ? products.map((item:itemProp) => (
-              <ProductCard
-                image={item.image}
-                description={item.description}
-                title={item.name}
-                price={item.auc_amount}
-                closed={!item.is_open}
-                endTime={new Date(item.end_date)}
-                id={item.id}
-              />
-            ))
-              : (
-                <img alt="no data" src="https://miro.medium.com/max/1400/1*VYtKX_1QzcszNycjldry5A.png" />
-              )) }
+            {
+              !isLoading && (products.length ? products.map((item:itemProp) => (
+                <ProductCard
+                  image={item.image}
+                  description={item.description}
+                  title={item.name}
+                  price={item.auc_amount}
+                  closed={!item.is_open}
+                  endTime={new Date(item.end_date)}
+                  id={item.id}
+                />
+              ))
+                : (
+                  <img alt="no data" src="https://miro.medium.com/max/1400/1*VYtKX_1QzcszNycjldry5A.png" />
+                ))
+            }
           </div>
           {count > 6
             ? <Pagination count={Math.ceil(count / 6)} page={page} onChange={handleChange} />
