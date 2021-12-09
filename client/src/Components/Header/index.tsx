@@ -112,7 +112,7 @@ const Header: FC = () => {
             ))}
           </ImageList>
         )
-        : <Skeleton variant="rectangular" className="img-container" width="43%" height="50vh" />}
+        : <Skeleton variant="rectangular" className="img-container" width="60%" height="50vh" />}
     </div>
   );
 };
