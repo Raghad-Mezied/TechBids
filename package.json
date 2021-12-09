@@ -10,7 +10,8 @@
     "db:build": "cross-env NODE_ENV=development node server/src/config/dbBuild.js",
     "lint": "eslint server/src/** .",
     "lint-fix": "eslint server/src/** --fix",
-    "lint-client": "cd client && npm run lint"
+    "lint-client": "cd client && npm run lint",
+    "heroku-postbuild": "cd client && npm install && npm run build" 
   },
   "repository": {
     "type": "git",

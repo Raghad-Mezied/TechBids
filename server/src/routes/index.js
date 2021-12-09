@@ -1,8 +1,7 @@
 const router = require('express').Router();
 
 const {
-  serverError,
-  clientError,
+
   handleGetFilteredProducts,
   signIn,
   handleAddUser,
@@ -34,8 +33,5 @@ router.get('/categories/top', handleGetTopGategories);
 router.get('/categories', handleGetGategories);
 router.get('/product/:id/history', getAuction);
 router.get('/latest/auction', latestAuction);
-
-router.use(clientError);
-router.use(serverError);
 
 module.exports = router;
