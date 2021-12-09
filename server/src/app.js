@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require('env2')('.env');
 const { join } = require('path');
 const express = require('express');
