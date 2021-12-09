@@ -109,7 +109,14 @@ const Bids : React.FC = () => {
             }
           </div>
           {count > 6
-            ? <Pagination count={Math.ceil(count / 6)} page={page} onChange={handleChange} />
+            ? (
+              <Pagination
+                count={Math.ceil(count / 6)}
+                page={page}
+                onChange={handleChange}
+                sx={{ margin: 'auto' }}
+              />
+            )
             : null}
 
         </div>
