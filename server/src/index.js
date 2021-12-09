@@ -5,6 +5,6 @@ app.listen(app.get('PORT'), () => {
   console.log(`Server in listening at http://localhost:${app.get('PORT')}`);
 });
 
-server.listen(7000, () => {
+server.listen(app.get('PORT'), () => {
   console.log('Server in socket ');
 });
