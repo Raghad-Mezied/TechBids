@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import HardwareIcon from '@mui/icons-material/Hardware';
+import { io } from 'socket.io-client';
 import HistoryProduct from '../../Components/HistoryProduct';
 import Timer from '../../Components/Common/Timer';
 import NavBar from '../../Components/Common/NavBar';
@@ -14,9 +15,13 @@ import { useSnack } from '../../context/useSnack';
 import './Style.css';
 import BtnSocket from '../socket.io';
 import Footer from '../../Components/Common/Footer';
+import { useTimer } from '../../context/useTimer';
 
 const ProductDetails : React.FC = () => {
   const [priceBids, setPriceBids] = useState<number>(50);
+
+  const tomorow = new Date(Date.now());
+  tomorow.setDate(tomorow.getDate() + 1);
 
   const { id } = useParams();
   const { showSnack } = useSnack();
@@ -26,7 +31,7 @@ const ProductDetails : React.FC = () => {
       name: '',
       auc_start_amount: '',
       auc_inc_amount: '',
-      end_date: null,
+      end_date: tomorow,
       description: '',
       is_open: true,
       is_used: false,
@@ -38,7 +43,17 @@ const ProductDetails : React.FC = () => {
     },
   );
 
+  const socket = io('https://tech-bids.herokuapp.com', { withCredentials: true });
+
+  const { isTimeUp } = useTimer(new Date(data.end_date));
+
+  if (isTimeUp) {
+    socket.emit('closeBid', id);
+  }
+
   useEffect(() => {
+    socket.emit('joinRoom', id);
+
     const source = axios.CancelToken.source();
 
     const getProduct = async (): Promise<any> => {
@@ -52,6 +67,7 @@ const ProductDetails : React.FC = () => {
         showSnack(error, 'error');
       }
     };
+
     getProduct();
 
     return () => {

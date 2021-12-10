@@ -35,11 +35,18 @@ io.on('connection', (socket) => {
     console.log(`user with id : ${socket.id} join in room : ${data}`);
   });
 
+  socket.on('closeBid', async (id) => {
+    const product = await Product.findByPk(id);
+    product.is_open = false;
+    await product.save();
+  });
+
   socket.on('sendPrice', async (data) => {
     try {
       console.log(data);
       const product = await Product.findByPk(data.room);
       product.auc_amount += product.auc_inc_amount;
+      product.winner_id = data.user_id;
       await product.save();
       console.log('sssssssssssssssssssssssssssssssssssssssssssssss', product.auc_amount);
       await Auction.create({
