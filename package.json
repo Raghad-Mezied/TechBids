@@ -11,7 +11,7 @@
     "lint": "eslint server/src/** .",
     "lint-fix": "eslint server/src/** --fix",
     "lint-client": "cd client && npm run lint",
-    "heroku-postbuild": "cd client && npm install && npm run build" 
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.1",
     "pg": "^8.7.1",
     "sequelize": "^6.11.0",
     "socket.io": "^4.4.0"
